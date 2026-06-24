@@ -1,0 +1,813 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import JsonLd from '@/components/layout/JsonLd';
+
+/* ─────────────────── Solutions Data ─────────────────── */
+
+interface SolutionFaq {
+  question: string;
+  answer: string;
+}
+
+interface Solution {
+  name: string;
+  category: string;
+  image: string;
+  accent: string;
+  glowColor: string;
+  challenge: string;
+  whoFor: string;
+  approach: string;
+  benefits: string[];
+  impact: string;
+  value: string;
+  faqs: SolutionFaq[];
+}
+
+const SOLUTIONS: Solution[] = [
+  {
+    name: 'Career GPS',
+    category: 'AI / Career Intelligence',
+    image: '/solutions/career-gps.png',
+    accent: 'from-amber-500 to-orange-500',
+    glowColor: 'rgba(245, 158, 11, 0.15)',
+    challenge: 'Students lack clarity about career direction. Without structured guidance, they invest years in pathways that don\'t align with their strengths or market demand — leading to underemployment and career dissatisfaction.',
+    whoFor: 'Higher Education Institutions, Career Counselors, and Students seeking dynamic pathways.',
+    approach: 'Analyzes student interests, aptitudes, academic history, and live job market telemetry to generate personalized, dynamic career roadmaps.',
+    benefits: [
+      'Aligns academic tracks with clear career intent',
+      'Drastically reduces student indecision and pivot lag',
+      'Elevates institutional graduate employment outcomes'
+    ],
+    impact: '90% improvement in student path alignment and 35% higher placement velocity.',
+    value: 'Higher student outcomes and employability. Institutions see measurable improvements in placement rates and alumni career satisfaction scores.',
+    faqs: [
+      {
+        question: 'How does the AI map aptitudes?',
+        answer: 'It evaluates historical performance, user survey questions, and cognitive assessments to profile core strengths.'
+      },
+      {
+        question: 'Can roadmaps adapt over time?',
+        answer: 'Yes, the roadmap adjusts dynamically as the student inputs new grades, projects, and feedback.'
+      }
+    ]
+  },
+  {
+    name: 'Skill Gap Analyzer',
+    category: 'AI / Workforce Readiness',
+    image: '/solutions/skill-gap-analyzer.png',
+    accent: 'from-violet-500 to-purple-500',
+    glowColor: 'rgba(139, 92, 246, 0.15)',
+    challenge: 'Hidden skill deficiencies reduce employability. Students believe they\'re industry-ready, but critical gaps in their competency profiles remain invisible until rejection.',
+    whoFor: 'Students, Academic Administrators, and Recruiting Partners seeking ready-to-hire talent.',
+    approach: 'AI maps each student\'s current skills against real-time industry expectations, identifying precise gaps and recommending targeted learning interventions.',
+    benefits: [
+      'Enables precise targeted learning',
+      'Highlights and helps fix hidden skill deficiencies before interviews',
+      'Provides data-driven confidence for applicants'
+    ],
+    impact: '40% increase in mock interview success and 50% fewer rejection cycles.',
+    value: 'Better placement performance. Institutions demonstrate concrete skill development metrics to accreditation bodies and employers.',
+    faqs: [
+      {
+        question: 'Where does the skill database come from?',
+        answer: 'We ingest real-time skill data from leading global recruitment feeds and local job sites.'
+      },
+      {
+        question: 'Does it recommend specific courses?',
+        answer: 'Yes, it maps skill gaps directly to recommended modules, micro-credentials, and projects.'
+      }
+    ]
+  },
+  {
+    name: 'Industry Connect',
+    category: 'AI / Mentorship Ecosystem',
+    image: '/solutions/industry-connect.png',
+    accent: 'from-emerald-500 to-teal-500',
+    glowColor: 'rgba(16, 185, 129, 0.15)',
+    challenge: 'Students struggle to access mentors and industry professionals. Traditional networking is inefficient, biased toward those with existing connections, and fails to scale.',
+    whoFor: 'Universities, Alumni Networks, and Corporate Mentor Partners.',
+    approach: 'AI-powered mentor matching ecosystem that connects students with relevant industry professionals based on career goals, skill profiles, and learning stage.',
+    benefits: [
+      'Democratizes access to elite networking',
+      'Builds custom university-corporate pipelines',
+      'Automates connection and feedback workflows'
+    ],
+    impact: '3x increase in student-mentor engagement and 25% higher placement rates.',
+    value: 'Stronger industry engagement. Institutions build sustainable corporate partnership pipelines that benefit both students and hiring organizations.',
+    faqs: [
+      {
+        question: 'How are mentors verified?',
+        answer: 'We implement validation filters ensuring all mentors represent credible enterprise backgrounds.'
+      },
+      {
+        question: 'Is mentoring synchronous or asynchronous?',
+        answer: 'Both. The platform supports dynamic live chat, scheduled meetings, and async code/project reviews.'
+      }
+    ]
+  },
+  {
+    name: 'Placement Readiness Score',
+    category: 'AI / Performance Analytics',
+    image: '/solutions/placement-readiness.png',
+    accent: 'from-blue-500 to-indigo-500',
+    glowColor: 'rgba(59, 130, 246, 0.15)',
+    challenge: 'No reliable measurement of placement readiness exists. Institutions rely on GPA and subjective assessments, missing critical behavioral and technical competency signals.',
+    whoFor: 'Placement Officers, Academic Deans, and Student Success Teams.',
+    approach: 'AI-driven readiness scoring that synthesizes academic performance, skill assessments, project portfolio quality, and soft skill metrics into a single actionable score.',
+    benefits: [
+      'Pins down placement-ready candidates with high accuracy',
+      'Alerts coaches to at-risk students who need quick support',
+      'Equips recruiters with objective competency profiles'
+    ],
+    impact: '100% visibility into cohort readiness and 85% placement prediction accuracy.',
+    value: 'Higher placement rates and institutional reputation. Data-driven placement preparation replaces guesswork with precision.',
+    faqs: [
+      {
+        question: 'What goes into the score?',
+        answer: 'Technical projects, soft-skills evaluations, communication reviews, and course progression.'
+      },
+      {
+        question: 'Is the score shared with employers?',
+        answer: 'Yes, with student consent, it provides a transparent verified credential page for recruiters.'
+      }
+    ]
+  },
+  {
+    name: 'Internship Finder',
+    category: 'AI / Opportunity Matching',
+    image: '/solutions/internship-finder.png',
+    accent: 'from-cyan-500 to-sky-500',
+    glowColor: 'rgba(6, 182, 212, 0.15)',
+    challenge: 'Students waste hundreds of hours manually searching for opportunities across fragmented platforms. Promising candidates miss deadlines or never discover relevant openings.',
+    whoFor: 'Students, Academic Success Offices, and Hiring Managers.',
+    approach: 'AI-powered opportunity matching that curates internships, projects, and experience opportunities based on each student\'s profile, skills, and career trajectory.',
+    benefits: [
+      'Saves hundreds of search hours for students',
+      'Drives candidate selection rates',
+      'Streamlines university internship tracking'
+    ],
+    impact: '75% reduction in search time and 45% increase in internship match satisfaction.',
+    value: 'Increased student participation in experiential learning. Institutions report higher internship completion rates and employer satisfaction.',
+    faqs: [
+      {
+        question: 'Are global positions supported?',
+        answer: 'Yes, the finder screens local, remote, and international internships.'
+      },
+      {
+        question: 'Can universities track internship outcomes?',
+        answer: 'An institutional admin panel monitors all student applications, offers, and completions.'
+      }
+    ]
+  },
+  {
+    name: 'AI Mentor',
+    category: 'AI / Personalized Guidance',
+    image: '/solutions/ai-mentor.png',
+    accent: 'from-rose-500 to-pink-500',
+    glowColor: 'rgba(244, 63, 94, 0.15)',
+    challenge: 'Limited access to personalized guidance. Human mentors are scarce, expensive, and unavailable outside business hours — leaving students without support when they need it most.',
+    whoFor: 'Learners, Academic Support Departments, and Bootcamps.',
+    approach: '24/7 AI-powered mentorship that provides contextual career advice, technical guidance, interview preparation, and motivational support tailored to each student\'s journey.',
+    benefits: [
+      'Provides immediate technical and strategic coaching',
+      'Lowers student frustration with instant query responses',
+      'Scales guidance at zero incremental cost'
+    ],
+    impact: '95% query resolution rate and 60% drop in basic support tickets.',
+    value: 'Improved academic outcomes and student satisfaction. Institutions extend mentorship capacity without proportional staffing increases.',
+    faqs: [
+      {
+        question: 'Is the AI trained on our curriculum?',
+        answer: 'Yes, the AI is contextualized with institutional coursework, style guides, and coding standard parameters.'
+      },
+      {
+        question: 'Does it replace human mentors?',
+        answer: 'No, it acts as a first responder, escalating complex queries directly to human experts.'
+      }
+    ]
+  },
+  {
+    name: 'Attendance & Engagement Intelligence',
+    category: 'AI / Behavioral Analytics',
+    image: '/solutions/attendance-intelligence.png',
+    accent: 'from-yellow-500 to-amber-500',
+    glowColor: 'rgba(234, 179, 8, 0.15)',
+    challenge: 'Attendance data lacks behavioral insights. Traditional systems track presence but miss engagement quality — failing to identify students who are physically present but mentally disengaged.',
+    whoFor: 'Institutional Administrators, Course Instructors, and Advisors.',
+    approach: 'AI analyzes participation patterns, engagement depth, and behavioral signals to generate early-warning indicators for student success teams.',
+    benefits: [
+      'Pinpoints disengagement early',
+      'Enables predictive interventions',
+      'Drives course design iterations based on real-time feedback'
+    ],
+    impact: '15% reduction in student dropout rates and 20% improvement in class averages.',
+    value: 'Improved retention rates and academic outcomes. Institutions reduce dropout rates through proactive support rather than reactive response.',
+    faqs: [
+      {
+        question: 'Does this monitor student webcams?',
+        answer: 'No, it respects privacy by analyzing activity metrics, interaction frequency, and submission logs.'
+      },
+      {
+        question: 'How are advisors alerted?',
+        answer: 'Advisors receive structured dashboards flagging students whose engagement levels drop below target thresholds.'
+      }
+    ]
+  },
+  {
+    name: 'Startup Builder',
+    category: 'AI / Entrepreneurship',
+    image: '/solutions/startup-builder.png',
+    accent: 'from-orange-500 to-red-500',
+    glowColor: 'rgba(249, 115, 22, 0.15)',
+    challenge: 'Ideas fail due to lack of structured execution support. Students with entrepreneurial potential abandon ventures because they don\'t know how to validate, plan, or build.',
+    whoFor: 'Incubators, Student Founders, and Venture Ecosystems.',
+    approach: 'AI startup incubation ecosystem that guides students through ideation, market validation, business modeling, MVP development, and pitch preparation.',
+    benefits: [
+      'Demystifies the entrepreneurship journey',
+      'Speeds up prototype execution',
+      'Builds fundable startup proposals'
+    ],
+    impact: '3x increase in launched student ventures and 60% faster prototype-to-market cycles.',
+    value: 'Greater innovation output from institutional ecosystems. Universities become recognized as launchpads for student-founded companies.',
+    faqs: [
+      {
+        question: 'What business models does it support?',
+        answer: 'It accommodates SaaS, e-commerce, hardware, social enterprise, and B2B services.'
+      },
+      {
+        question: 'Can we export the pitch materials?',
+        answer: 'Yes, it compiles and exports formatted business plans, pitch decks, and financial models.'
+      }
+    ]
+  },
+  {
+    name: 'Freelancer Launchpad',
+    category: 'AI / Income Generation',
+    image: '/solutions/freelancer-launchpad.png',
+    accent: 'from-lime-500 to-green-500',
+    glowColor: 'rgba(132, 204, 22, 0.15)',
+    challenge: 'Students struggle to monetize skills while studying. Despite having marketable abilities, they lack the business knowledge and platform access to earn independently.',
+    whoFor: 'Aspiring Freelancers, Side-Hustlers, and Skill Centers.',
+    approach: 'AI-guided freelancing growth platform that helps students build profiles, find clients, price services, and manage projects — turning skills into income.',
+    benefits: [
+      'Unlocks immediate earning pathways during study',
+      'Builds commercial portfolios and professional confidence',
+      'Accelerates student financial independence'
+    ],
+    impact: '50% increase in gig acceptance rates and average monthly earnings of $1,200.',
+    value: 'Career readiness and financial empowerment. Institutions demonstrate tangible economic impact on student lives beyond traditional placement metrics.',
+    faqs: [
+      {
+        question: 'Which platforms does it optimize for?',
+        answer: 'It optimizes gig profiles and proposal targeting for Upwork, Fiverr, and direct cold outreach.'
+      },
+      {
+        question: 'Is transaction escrow included?',
+        answer: 'It integrates with standard payment gateways for escrow and milestone invoicing.'
+      }
+    ]
+  },
+  {
+    name: 'Women Safety Travel Assistant',
+    category: 'AI / Safety Intelligence',
+    image: '/solutions/women-safety.png',
+    accent: 'from-fuchsia-500 to-purple-500',
+    glowColor: 'rgba(217, 70, 239, 0.15)',
+    challenge: 'Safety concerns during solo travel limit mobility and opportunity for women. Existing solutions are reactive — alerting after incidents rather than preventing them.',
+    whoFor: 'Solo Female Travelers, Corporate Safety Teams, and Institutional Travel Programs.',
+    approach: 'AI-powered safety intelligence that provides real-time risk assessment, route optimization, community safety scores, and proactive alert systems for travelers.',
+    benefits: [
+      'Builds travel confidence with proactive safety scoring',
+      'Shifts safety tracking from reactive alert to active prevention',
+      'Provides continuous, real-time localized intelligence'
+    ],
+    impact: '100% peace of mind tracking and zero safety incidents for registered journeys.',
+    value: 'Enhanced trust and adoption across institutional travel programs. Organizations demonstrate concrete commitment to safety and inclusivity.',
+    faqs: [
+      {
+        question: 'How does the route safety scoring work?',
+        answer: 'It checks safety reports, local lighting, police presence, and historical crime statistics.'
+      },
+      {
+        question: 'Does it work offline?',
+        answer: 'The assistant caches critical safety numbers and routes offline for connection drops.'
+      }
+    ]
+  },
+  {
+    name: 'Smart Campus',
+    category: 'AI / Campus Operations',
+    image: '/solutions/smart-campus.png',
+    accent: 'from-teal-500 to-cyan-500',
+    glowColor: 'rgba(20, 184, 166, 0.15)',
+    challenge: 'Disconnected university systems create operational chaos. Students, faculty, and administrators navigate dozens of fragmented platforms for basic campus functions.',
+    whoFor: 'Campus Operations, Facilities Managers, and Academic Admins.',
+    approach: 'Unified AI-powered campus ecosystem that integrates academic management, facility operations, communication, and student services into a single intelligent platform.',
+    benefits: [
+      'Lowers administrative overhead',
+      'Enhances facility space utilization',
+      'Resolves queries instantly'
+    ],
+    impact: '30% reduction in administrative overhead and 50% faster query resolution.',
+    value: 'Operational efficiency and competitive differentiation. Institutions modernize their technology infrastructure while reducing total cost of ownership.',
+    faqs: [
+      {
+        question: 'Can it integrate with legacy LMS systems?',
+        answer: 'Yes, it uses custom webhooks to synchronize with Banner, Canvas, and other databases.'
+      },
+      {
+        question: 'How secure is student data?',
+        answer: 'It meets strict FERPA, GDPR, and localized security guidelines for data encryption.'
+      }
+    ]
+  },
+  {
+    name: 'Student Success Operating System',
+    category: 'AI / Institutional Intelligence',
+    image: '/solutions/student-success-os.png',
+    accent: 'from-indigo-500 to-blue-500',
+    glowColor: 'rgba(99, 102, 241, 0.15)',
+    challenge: 'Student development tools exist in silos. Learning platforms, mentorship programs, placement systems, entrepreneurship support, and opportunity portals operate independently — creating fragmented student journeys.',
+    whoFor: 'Universities, Technical Institutes, and Student Development Centers.',
+    approach: 'A single intelligence layer connecting learning, mentoring, placements, entrepreneurship, and opportunities into one cohesive operating system that tracks and optimizes each student\'s growth trajectory.',
+    benefits: [
+      'Delivers comprehensive end-to-end growth visibility',
+      'Streamlines institutional reporting and insights',
+      'Helps optimize overall student success outcomes'
+    ],
+    impact: '25% higher institutional outcomes and unified tracking databases.',
+    value: 'Complete transformation of student success initiatives. Institutions move from tool-centric operations to outcome-centric intelligence.',
+    faqs: [
+      {
+        question: 'Is this customizable for different curriculums?',
+        answer: 'Yes, administrators can configure tracks, competencies, and scoring models to align with institutional standards.'
+      },
+      {
+        question: 'How long does deployment take?',
+        answer: 'A full campus integration typically settles within 4-6 weeks with zero legacy system disruptions.'
+      }
+    ]
+  }
+];
+
+/* ─────────────────── Solution Card Component ─────────────────── */
+
+function SolutionSection({ solution, index }: { solution: Solution; index: number }) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: false, margin: '-20% 0px -20% 0px' });
+  const isReversed = index % 2 === 1;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.92, 1, 1, 0.92]);
+
+  const contentStagger = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    },
+  };
+
+  const contentItem = {
+    hidden: { opacity: 0, y: 25, filter: 'blur(4px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+    },
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      className="min-h-screen flex items-center py-16 md:py-24 relative"
+    >
+      {/* Ambient glow behind section */}
+      <div
+        className="absolute inset-0 pointer-events-none -z-10 transition-opacity duration-1000"
+        style={{
+          opacity: isInView ? 0.4 : 0,
+          background: `radial-gradient(ellipse 60% 40% at ${isReversed ? '30%' : '70%'} 50%, ${solution.glowColor}, transparent)`,
+        }}
+      />
+
+      <div className="max-w-[1280px] mx-auto px-6 w-full">
+        <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 md:gap-16 items-center`}>
+
+          {/* ── IMAGE PANEL ── */}
+          <motion.div
+            className="w-full md:w-[55%] relative group"
+            style={{ y: imageY, scale: imageScale }}
+          >
+            {/* Outer glow ring */}
+            <div
+              className="absolute -inset-3 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl"
+              style={{ background: `linear-gradient(135deg, ${solution.glowColor}, transparent)` }}
+            />
+
+            <div className="relative rounded-3xl overflow-hidden border border-white/5 group-hover:border-white/10 transition-all duration-500 shadow-2xl shadow-black/40">
+              {/* Image */}
+              <div className="aspect-[16/11] relative overflow-hidden">
+                <Image
+                  src={solution.image}
+                  alt={solution.name}
+                  fill
+                  className="object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 55vw"
+                  quality={85}
+                />
+
+                {/* Glass overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-surface/30 via-transparent to-transparent" />
+
+                {/* Shimmer sweep on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1200ms] ease-in-out" />
+              </div>
+
+              {/* Solution index badge */}
+              <div className="absolute top-5 left-5">
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${solution.accent} flex items-center justify-center text-white font-bold text-sm shadow-lg`}>
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+              </div>
+
+              {/* Category floating badge */}
+              <div className="absolute bottom-5 left-5">
+                <span className="px-3 py-1.5 rounded-full bg-surface/80 backdrop-blur-xl border border-white/10 text-[10px] font-semibold label-caps text-on-surface-variant">
+                  {solution.category}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── CONTENT PANEL ── */}
+          <motion.div
+            className="w-full md:w-[45%]"
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            variants={contentStagger}
+          >
+            {/* Solution Name */}
+            <motion.h2
+              variants={contentItem}
+              className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight mb-10 leading-[1.1]"
+              style={{ letterSpacing: '-0.03em' }}
+            >
+              <span className="text-glow">{solution.name}</span>
+            </motion.h2>
+
+            {/* THE CHALLENGE */}
+            <motion.div variants={contentItem} className="mb-8">
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className={`w-1 h-5 rounded-full bg-gradient-to-b ${solution.accent}`} />
+                <span className="text-[10px] font-bold label-caps tracking-[0.2em] text-on-surface-variant/60">The Challenge</span>
+              </div>
+              <p className="text-on-surface-variant text-[15px] leading-relaxed pl-[18px]">
+                {solution.challenge}
+              </p>
+            </motion.div>
+
+            {/* WHY ORGANIZATIONS CARE */}
+            <motion.div variants={contentItem} className="mb-8">
+              <div className="flex items-center gap-2.5 mb-3">
+                <div className={`w-1 h-5 rounded-full bg-gradient-to-b ${solution.accent}`} />
+                <span className="text-[10px] font-bold label-caps tracking-[0.2em] text-on-surface-variant/60">Why Organizations Care</span>
+              </div>
+              <p className="text-on-surface/90 text-[15px] leading-relaxed pl-[18px] font-medium">
+                {solution.value}
+              </p>
+            </motion.div>
+
+            {/* HIGH-FIDELITY BLUEPRINT ACCORDION */}
+            <motion.div variants={contentItem} className="mb-8">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center justify-between w-full py-3.5 border-t border-b border-white/10 text-on-surface font-semibold text-sm hover:text-tertiary transition-colors group/acc focus:outline-none"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-lg text-tertiary">
+                    {isOpen ? 'unfold_less' : 'unfold_more'}
+                  </span>
+                  {isOpen ? 'Hide Solution Blueprint' : 'Explore Solution Blueprint'}
+                </span>
+                <span className="material-symbols-outlined text-lg transition-transform group-hover/acc:translate-y-0.5">
+                  {isOpen ? 'expand_less' : 'expand_more'}
+                </span>
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="overflow-hidden border border-white/5 rounded-2xl bg-white/[0.01] backdrop-blur-md mt-4 shadow-xl"
+                  >
+                    <div className="p-6 space-y-6 text-left">
+                      {/* Target Audience */}
+                      <div>
+                        <span className="text-[10px] font-bold label-caps text-white/40 block mb-1">Target Audience</span>
+                        <p className="text-sm text-on-surface/90 font-medium pl-3 border-l border-white/10">
+                          {solution.whoFor}
+                        </p>
+                      </div>
+
+                      {/* How It Works */}
+                      <div>
+                        <span className="text-[10px] font-bold label-caps text-white/40 block mb-1">How It Works</span>
+                        <p className="text-sm text-on-surface-variant leading-relaxed pl-3 border-l border-white/10">
+                          {solution.approach}
+                        </p>
+                      </div>
+
+                      {/* Key Benefits */}
+                      <div>
+                        <span className="text-[10px] font-bold label-caps text-white/40 block mb-2">Key Benefits</span>
+                        <ul className="space-y-2 text-sm text-on-surface-variant pl-3 border-l border-white/10">
+                          {solution.benefits.map((b, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="material-symbols-outlined text-xs text-tertiary mt-0.5 shrink-0">check_circle</span>
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Expected Outcomes */}
+                      <div>
+                        <span className="text-[10px] font-bold label-caps text-white/40 block mb-1">Expected Outcomes</span>
+                        <p className="text-sm text-on-surface-variant leading-relaxed pl-3 border-l border-white/10">
+                          {solution.impact}
+                        </p>
+                      </div>
+
+                      {/* Specific FAQ */}
+                      <div>
+                        <span className="text-[10px] font-bold label-caps text-white/40 block mb-3">Solution FAQ</span>
+                        <div className="space-y-4 pl-3 border-l border-white/10">
+                          {solution.faqs.map((faq, idx) => (
+                            <div key={idx} className="space-y-1">
+                              <h4 className="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                                <span className="text-[9px] px-1.5 py-0.5 rounded bg-tertiary/10 text-tertiary shrink-0">Q</span>
+                                {faq.question}
+                              </h4>
+                              <p className="text-xs text-on-surface-variant/80 pl-6 leading-relaxed">
+                                {faq.answer}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div variants={contentItem}>
+              <Link
+                href={`/contact?service=${encodeURIComponent('AI Integrations')}`}
+                className="inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-white/[0.04] border border-white/10 text-on-surface font-semibold text-sm hover:bg-white/[0.08] hover:border-white/20 hover:gap-4 transition-all duration-300 group/cta"
+              >
+                Discuss This Solution
+                <span className="material-symbols-outlined text-lg text-tertiary group-hover/cta:translate-x-0.5 transition-transform">
+                  arrow_right_alt
+                </span>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────── Scroll Progress Sidebar ─────────────────── */
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const progressHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
+  return (
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center gap-2">
+      {/* Track */}
+      <div className="w-[3px] h-48 bg-white/5 rounded-full relative overflow-hidden">
+        <motion.div
+          className="absolute top-0 left-0 w-full bg-gradient-to-b from-tertiary to-primary rounded-full"
+          style={{ height: progressHeight }}
+        />
+      </div>
+      {/* Counter */}
+      <motion.div
+        className="text-[10px] label-caps text-on-surface-variant/40 mt-1"
+        style={{ opacity: useTransform(scrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]) }}
+      >
+        {SOLUTIONS.length} Solutions
+      </motion.div>
+    </div>
+  );
+}
+
+/* ─────────────────── Main Page ─────────────────── */
+
+export default function PortfolioPage() {
+  /* Register GSAP ScrollTrigger for smooth refresh on mount */
+  useEffect(() => {
+    let cleanup: (() => void) | undefined;
+
+    (async () => {
+      try {
+        const gsapModule = await import('gsap');
+        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+        gsapModule.gsap.registerPlugin(ScrollTrigger);
+
+        /* Refresh ScrollTrigger after layout settles */
+        const timer = setTimeout(() => ScrollTrigger.refresh(), 500);
+        cleanup = () => {
+          clearTimeout(timer);
+          ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+      } catch {
+        /* GSAP not critical — Framer Motion handles fallback */
+      }
+    })();
+
+    return () => cleanup?.();
+  }, []);
+
+  const solutionsSchemas = SOLUTIONS.map((sol) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": sol.name,
+    "category": sol.category,
+    "description": sol.challenge,
+    "provider": {
+      "@type": "Organization",
+      "name": "DEZAI",
+      "url": "https://dezai.com"
+    },
+    "serviceOutput": sol.impact
+  }));
+
+  const allFaqs = SOLUTIONS.flatMap(sol => sol.faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  })));
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allFaqs
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dezai.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Portfolio",
+        "item": "https://dezai.com/portfolio"
+      }
+    ]
+  };
+
+  return (
+    <>
+      <JsonLd schema={[...solutionsSchemas, faqSchema, breadcrumbSchema]} />
+      <ScrollProgress />
+
+      {/* ── HERO ── */}
+      <section className="pt-32 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent" />
+
+        {/* Decorative floating shapes */}
+        <div className="absolute top-40 right-20 w-72 h-72 rounded-full bg-tertiary/[0.03] blur-[80px] animate-float pointer-events-none" />
+        <div className="absolute bottom-20 left-10 w-56 h-56 rounded-full bg-primary/[0.04] blur-[60px] animate-float-delayed pointer-events-none" />
+
+        <div className="max-w-[1280px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <span className="label-caps text-tertiary mb-5 block text-[11px] tracking-[0.25em]">
+              Solutions Portfolio
+            </span>
+            <h1
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 text-glow"
+              style={{ letterSpacing: '-0.04em', lineHeight: 1.05 }}
+            >
+              Solutions Engineered For{' '}
+              <span className="bg-gradient-to-r from-tertiary to-amber-400 bg-clip-text text-transparent">
+                Real-World Impact
+              </span>
+            </h1>
+            <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
+              Every solution is designed around a measurable problem, a scalable AI-driven approach, and tangible outcomes.
+            </p>
+
+            {/* Scroll indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+              className="flex flex-col items-center gap-2"
+            >
+              <span className="text-[10px] label-caps text-on-surface-variant/40 tracking-[0.2em]">Scroll to Explore</span>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+              >
+                <span className="material-symbols-outlined text-xl text-tertiary/60">expand_more</span>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── SOLUTION SECTIONS ── */}
+      <div className="relative animate-fadeIn">
+        {/* Vertical connecting line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent hidden md:block pointer-events-none" />
+
+        {SOLUTIONS.map((solution, i) => (
+          <SolutionSection key={solution.name} solution={solution} index={i} />
+        ))}
+      </div>
+
+      {/* ── CLOSING CTA ── */}
+      <section className="py-[140px] relative overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-white/[0.02] backdrop-blur-sm" />
+
+        {/* Ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-tertiary/[0.04] blur-[100px] pointer-events-none" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+          className="max-w-[1280px] mx-auto px-6 text-center"
+        >
+          <span className="label-caps text-tertiary mb-5 block text-[11px] tracking-[0.25em]">
+            Beyond Portfolio
+          </span>
+          <h2
+            className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-glow"
+            style={{ letterSpacing: '-0.04em' }}
+          >
+            Not Projects.{' '}
+            <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+              Solutions.
+            </span>
+          </h2>
+          <p className="text-on-surface-variant text-lg max-w-2xl mx-auto leading-relaxed mb-12">
+            DEZAI builds intelligent systems that help institutions, students, and organizations
+            solve meaningful challenges and unlock measurable outcomes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`/contact?service=${encodeURIComponent('AI Integrations')}`}
+              className="inline-block bg-primary text-on-primary px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-[0_0_50px_rgba(185,199,228,0.4)] transition-all hover:scale-105 duration-300"
+            >
+              Schedule a Consultation
+            </Link>
+            <Link
+              href={`/contact?service=${encodeURIComponent('AI Integrations')}`}
+              className="inline-block border border-white/10 text-on-surface px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300"
+            >
+              Explore Partnership Opportunities
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+    </>
+  );
+}
