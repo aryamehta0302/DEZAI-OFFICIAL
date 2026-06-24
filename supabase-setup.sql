@@ -1,6 +1,11 @@
 -- DEZAI Website — Supabase Table Setup
 -- Run this in your Supabase SQL Editor (https://supabase.com/dashboard/project/YOUR_PROJECT/sql/new)
 
+-- Drop existing tables if they exist to prevent schema cache issues and ensure all columns are created correctly.
+-- WARNING: This will delete any existing data in these tables.
+DROP TABLE IF EXISTS business_leads CASCADE;
+DROP TABLE IF EXISTS learner_applications CASCADE;
+
 -- ============================================================
 -- Table: business_leads
 -- Stores inquiries from the Business Inquiry form on /contact
