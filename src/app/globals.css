@@ -229,3 +229,59 @@ body {
 .input-base::placeholder {
   color: var(--color-outline);
 }
+
+/* === Luckacho UI Animations === */
+@keyframes moveUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-moveUp {
+  animation: moveUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-appear {
+  animation: appear 1.2s ease-in-out forwards;
+}
+
+/* === Ambient Global Lighting Animations === */
+@keyframes ambientDrift1 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+  33% { transform: translate(3%, 5%) scale(1.05); opacity: 0.25; }
+  66% { transform: translate(-2%, 2%) scale(0.95); opacity: 0.15; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+}
+
+@keyframes ambientDrift2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+  33% { transform: translate(-4%, -3%) scale(1.1); opacity: 0.2; }
+  66% { transform: translate(3%, -4%) scale(0.9); opacity: 0.15; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+}
+
+.animate-ambient-1 {
+  animation: ambientDrift1 20s ease-in-out infinite alternate;
+}
+
+.animate-ambient-2 {
+  animation: ambientDrift2 25s ease-in-out infinite alternate-reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-1,
+  .animate-ambient-2 {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Background grid utility */
+.bg-grid-white {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}

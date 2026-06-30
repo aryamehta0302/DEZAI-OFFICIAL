@@ -4,9 +4,9 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="relative z-10 w-full bg-surface-dim border-t border-border mt-[120px]">
-      <div className="max-w-[1280px] mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="max-w-[1280px] mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
         {/* Brand */}
-        <div className="col-span-1">
+        <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-3 mb-6">
             <Image
               src="/logo-brand.png"
@@ -50,7 +50,7 @@ export default function Footer() {
         </nav>
 
         {/* Connect */}
-        <nav aria-label="Connect">
+        <nav aria-label="Connect" className="col-span-2 md:col-span-1">
           <h5 className="font-bold mb-6 text-sm text-on-surface">Connect</h5>
           <ul className="space-y-3 text-on-surface-variant text-sm">
             <li><Link href="/contact" className="hover:text-primary transition-colors">Start a Project</Link></li>
@@ -79,13 +79,13 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="max-w-[1280px] mx-auto px-6 py-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs label-caps text-outline">
-        <div>© 2026 DEZAI. Architectural Digital Excellence.</div>
-        <div className="flex gap-6">
+      <div className="max-w-[1280px] mx-auto px-6 py-8 border-t border-border flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-4 text-xs label-caps text-outline text-center lg:text-left">
+        <div className="order-3 lg:order-1">© 2026 DEZAI. Architectural Digital Excellence.</div>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8 order-1 lg:order-2">
           <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-primary transition-colors">Terms &amp; Conditions</Link>
         </div>
-        <div>UAE Registered • Remote-First Global Team</div>
+        <div className="order-2 lg:order-3 text-center lg:text-right">UAE Registered • Remote-First Global Team</div>
       </div>
     </footer>
   );

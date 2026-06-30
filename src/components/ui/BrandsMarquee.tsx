@@ -30,7 +30,7 @@ export default function BrandsMarquee({
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none" />
 
       <div className="flex flex-col items-center mb-8">
-        <span className="label-caps text-on-surface-variant mb-2">Trusted by Global Teams</span>
+        <span className="label-caps text-on-surface-variant mb-2">Companies Partnered</span>
       </div>
 
       <div 

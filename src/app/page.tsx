@@ -24,151 +24,70 @@ export default function Home() {
     "logo": "https://dezai.com/logo-brand.png",
     "email": "team.dezaiai@gmail.com",
     "telephone": "+971552279475",
-    "description": "UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience. DEZAI is established as a leading AI solutions company, EdTech innovator, career intelligence platform, and student success ecosystem.",
+    "description": "UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "AE",
       "addressLocality": "Dubai"
-    }
+    },
+    "sameAs": [
+      "https://twitter.com/dezai_placeholder",
+      "https://linkedin.com/company/dezai_placeholder",
+      "https://github.com/dezai_placeholder"
+    ]
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "DEZAI",
-    "url": "https://dezai.com"
+    "url": "https://dezai.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://dezai.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   };
 
   return (
     <>
       <JsonLd schema={[orgSchema, websiteSchema]} />
       {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-        <div className="max-w-[1280px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="z-10"
-          >
-            {/* Badge */}
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface-dim mb-6">
-              <span className="label-caps text-primary">UAE Registered • Global Impact</span>
-            </motion.div>
+      <section className="relative w-full min-h-[90vh] flex flex-col bg-surface overflow-hidden">
 
-            {/* Headline */}
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6 text-on-surface"
-              style={{ letterSpacing: '-0.04em' }}
+        {/* Content Container */}
+        <div className="w-full h-full flex-1 flex flex-col items-center justify-center relative z-10 animate-moveUp max-w-[1280px] mx-auto px-6 py-20 mt-10">
+
+          {/* Headline (H1 for SEO) */}
+          <h1 className="text-on-surface text-center font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-8 pb-2">
+            Build Products.<br />
+            Build People.<br />
+            <span className="text-primary">Build The Future.</span>
+          </h1>
+
+          {/* Subheadline (p for SEO) */}
+          <p className="text-on-surface-variant text-center text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed font-medium">
+            UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full">
+            <Link 
+              href="/contact"
+              className="group h-12 sm:h-14 px-8 bg-primary text-on-primary rounded-xl flex items-center justify-center gap-2 font-bold text-lg transition-all shadow-[0_4px_24px_rgba(26,43,90,0.15)] hover:shadow-[0_4px_32px_rgba(26,43,90,0.25)] hover:bg-primary-dim"
             >
-              Build Products.<br />
-              Build People.<br />
-              <span className="text-primary">Build The Future.</span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              variants={fadeInUp}
-              className="text-on-surface-variant text-lg max-w-xl mb-10 leading-relaxed"
+              <span>Start Your Project</span>
+              <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </Link>
+            <Link 
+              href="/learners"
+              className="h-12 sm:h-14 px-8 flex items-center justify-center font-bold text-lg text-on-surface hover:bg-surface-dim transition-colors border border-border hover:border-border-hover rounded-xl"
             >
-              UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dim transition-all hover:shadow-[0_8px_24px_rgba(26,43,90,0.2)]"
-              >
-                Start Your Project
-              </Link>
-              <Link
-                href="/learners"
-                className="border border-border px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-dim hover:border-border-hover transition-all"
-              >
-                Join DEZAI Learners
-              </Link>
-            </motion.div>
-
-            {/* Trust Badges */}
-            <motion.div variants={fadeInUp} className="mt-16 flex flex-wrap gap-8 text-on-surface-variant">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-sm">verified</span>
-                <span className="text-sm label-caps">UAE Registered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-sm">public</span>
-                <span className="text-sm label-caps">Remote-First</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-sm">visibility</span>
-                <span className="text-sm label-caps">Transparent Workflow</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Hero Visual — Clean Product Preview */}
-          <div className="relative hidden lg:block h-[580px]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              {/* Central App Shell */}
-              <motion.div
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="w-72 h-[500px] card-elevated rounded-[32px] p-6 relative z-20 shadow-[0_16px_64px_rgba(0,0,0,0.08)]"
-              >
-                <div className="w-full h-28 bg-gradient-to-br from-primary/8 to-primary/20 rounded-2xl mb-4 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5" />
-                </div>
-                <div className="space-y-3">
-                  <div className="h-4 w-3/4 bg-surface-dim rounded" />
-                  <div className="h-4 w-1/2 bg-surface-dim rounded" />
-                  <div className="h-20 w-full bg-surface-dim rounded-xl" />
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="h-12 bg-surface-dim rounded-lg" />
-                    <div className="h-12 bg-surface-dim rounded-lg" />
-                  </div>
-                  <div className="h-14 w-full bg-primary/8 rounded-xl mt-2" />
-                </div>
-              </motion.div>
-
-              {/* Floating Dashboard Card */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                className="absolute top-10 -right-4 w-60 h-44 card-elevated rounded-2xl p-4 z-10 shadow-[0_8px_32px_rgba(0,0,0,0.06)]"
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <div className="h-3 w-20 bg-primary/15 rounded" />
-                  <span className="material-symbols-outlined text-primary text-xs">insights</span>
-                </div>
-                <div className="flex items-end gap-1 h-20">
-                  <div className="flex-1 bg-primary/15 rounded-t" style={{ height: '60%' }} />
-                  <div className="flex-1 bg-primary/20 rounded-t" style={{ height: '80%' }} />
-                  <div className="flex-1 bg-primary/30 rounded-t" style={{ height: '100%' }} />
-                  <div className="flex-1 bg-primary/20 rounded-t" style={{ height: '70%' }} />
-                  <div className="flex-1 bg-primary/25 rounded-t" style={{ height: '90%' }} />
-                </div>
-              </motion.div>
-
-              {/* Floating User Card */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
-                className="absolute bottom-24 -left-8 w-52 h-36 card-elevated rounded-2xl p-4 z-10 shadow-[0_8px_32px_rgba(0,0,0,0.06)]"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10" />
-                  <div className="space-y-1">
-                    <div className="h-2 w-16 bg-surface-high rounded" />
-                    <div className="h-2 w-10 bg-surface-dim rounded" />
-                  </div>
-                </div>
-                <div className="h-2 w-full bg-surface-dim rounded mb-2" />
-                <div className="h-2 w-4/5 bg-surface-dim rounded mb-4" />
-                <div className="h-8 w-full bg-primary/10 rounded-lg" />
-              </motion.div>
-            </div>
+              <span>Join Learners</span>
+            </Link>
           </div>
         </div>
       </section>
