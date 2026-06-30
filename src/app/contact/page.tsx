@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { SERVICES, BUDGET_RANGES, BACKGROUND_OPTIONS, PATH_OPTIONS } from '@/lib/constants';
 import CustomSelect from '@/components/ui/CustomSelect';
 import JsonLd from '@/components/layout/JsonLd';
@@ -62,9 +62,9 @@ function BusinessFormContent() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="glass-card-static rounded-3xl p-10 text-center"
+        className="card-static rounded-2xl p-10 text-center"
       >
-        <span className="material-symbols-outlined text-tertiary text-6xl mb-4 block">check_circle</span>
+        <span className="material-symbols-outlined text-primary text-6xl mb-4 block">check_circle</span>
         <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
         <p className="text-on-surface-variant">We&apos;ve received your inquiry and will get back to you within 24 hours.</p>
       </motion.div>
@@ -72,7 +72,7 @@ function BusinessFormContent() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card-static rounded-3xl p-8 md:p-10 space-y-6">
+    <form onSubmit={handleSubmit} className="card-static rounded-2xl p-8 md:p-10 space-y-6">
       <div>
         <h3 className="text-2xl font-bold mb-2">Start a Project</h3>
         <p className="text-on-surface-variant text-sm">Tell us about your vision and we&apos;ll help you build it.</p>
@@ -86,7 +86,7 @@ function BusinessFormContent() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors"
+            className="input-base"
             placeholder="Your name"
           />
         </div>
@@ -97,7 +97,7 @@ function BusinessFormContent() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors"
+            className="input-base"
             placeholder="you@company.com"
           />
         </div>
@@ -110,7 +110,7 @@ function BusinessFormContent() {
             type="text"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors"
+            className="input-base"
             placeholder="Company name"
           />
         </div>
@@ -140,7 +140,7 @@ function BusinessFormContent() {
           rows={4}
           value={formData.project_description}
           onChange={(e) => setFormData({ ...formData, project_description: e.target.value })}
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors resize-none"
+          className="input-base resize-none"
           placeholder="Tell us about your project..."
         />
       </div>
@@ -150,7 +150,7 @@ function BusinessFormContent() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(185,199,228,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg hover:bg-primary-dim hover:shadow-[0_8px_24px_rgba(26,43,90,0.15)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? 'Submitting...' : 'Submit Inquiry'}
       </button>
@@ -160,7 +160,7 @@ function BusinessFormContent() {
 
 function BusinessForm() {
   return (
-    <Suspense fallback={<div className="glass-card-static rounded-3xl p-8 md:p-10 h-[560px] flex items-center justify-center text-on-surface-variant/40">Loading Form...</div>}>
+    <Suspense fallback={<div className="card-static rounded-2xl p-8 md:p-10 h-[560px] flex items-center justify-center text-outline">Loading Form...</div>}>
       <BusinessFormContent />
     </Suspense>
   );
@@ -201,9 +201,9 @@ function LearnerForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="glass-card-static rounded-3xl p-10 text-center"
+        className="card-static rounded-2xl p-10 text-center"
       >
-        <span className="material-symbols-outlined text-tertiary text-6xl mb-4 block">school</span>
+        <span className="material-symbols-outlined text-primary text-6xl mb-4 block">school</span>
         <h3 className="text-2xl font-bold mb-2">Application Received!</h3>
         <p className="text-on-surface-variant">Welcome to the DEZAI Learners community. We&apos;ll be in touch soon.</p>
       </motion.div>
@@ -211,7 +211,7 @@ function LearnerForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card-static rounded-3xl p-8 md:p-10 space-y-6">
+    <form onSubmit={handleSubmit} className="card-static rounded-2xl p-8 md:p-10 space-y-6">
       <div>
         <h3 className="text-2xl font-bold mb-2">Apply as a Learner</h3>
         <p className="text-on-surface-variant text-sm">Start your journey towards becoming a world-class professional.</p>
@@ -225,7 +225,7 @@ function LearnerForm() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-tertiary transition-colors"
+            className="input-base"
             placeholder="Your name"
           />
         </div>
@@ -236,7 +236,7 @@ function LearnerForm() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-tertiary transition-colors"
+            className="input-base"
             placeholder="you@email.com"
           />
         </div>
@@ -269,7 +269,7 @@ function LearnerForm() {
           type="url"
           value={formData.portfolio_url}
           onChange={(e) => setFormData({ ...formData, portfolio_url: e.target.value })}
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-tertiary transition-colors"
+          className="input-base"
           placeholder="https://your-portfolio.com"
         />
       </div>
@@ -281,7 +281,7 @@ function LearnerForm() {
           rows={4}
           value={formData.motivation}
           onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-on-surface focus:outline-none focus:border-tertiary transition-colors resize-none"
+          className="input-base resize-none"
           placeholder="Tell us why you want to join DEZAI Learners..."
         />
       </div>
@@ -291,7 +291,7 @@ function LearnerForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-tertiary text-on-tertiary py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-primary text-on-tertiary py-4 rounded-xl font-bold text-lg hover:bg-primary-dim hover:shadow-[0_8px_24px_rgba(212,168,83,0.15)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? 'Submitting...' : 'Submit Application'}
       </button>
@@ -340,7 +340,6 @@ export default function ContactPage() {
       <JsonLd schema={[contactSchema, breadcrumbSchema]} />
       {/* Hero */}
       <section className="pt-32 pb-16 relative">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="text-center max-w-3xl mx-auto">
             <motion.h1
@@ -386,33 +385,33 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card-static rounded-3xl p-12 max-w-2xl mx-auto"
+            className="card-static rounded-2xl p-12 max-w-2xl mx-auto"
           >
             <h3 className="text-xl font-bold mb-6">Other Ways to Reach Us</h3>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              <a href="mailto:team.dezaiai@gmail.com" className="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-colors">
-                <span className="material-symbols-outlined text-tertiary">support_agent</span>
+              <a href="mailto:team.dezaiai@gmail.com" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">
+                <span className="material-symbols-outlined text-primary">support_agent</span>
                 <div>
-                  <div className="text-[10px] text-left text-white/40 label-caps">Direct Support</div>
+                  <div className="text-[10px] text-left text-outline label-caps">Direct Support</div>
                   <div className="text-sm">team.dezaiai@gmail.com</div>
                 </div>
               </a>
-              <a href="tel:+971552279475" className="flex items-center gap-3 text-on-surface-variant hover:text-tertiary transition-colors">
-                <span className="material-symbols-outlined text-tertiary">phone</span>
+              <a href="tel:+971552279475" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">
+                <span className="material-symbols-outlined text-primary">phone</span>
                 <div>
-                  <div className="text-[10px] text-left text-white/40 label-caps">Support Hotline</div>
+                  <div className="text-[10px] text-left text-outline label-caps">Support Hotline</div>
                   <div className="text-sm">+971 55 227 9475</div>
                 </div>
               </a>
             </div>
             <div className="mt-6 flex justify-center gap-3 text-on-surface-variant/60 text-sm">
               <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-xs text-tertiary">verified</span>
+                <span className="material-symbols-outlined text-xs text-primary">verified</span>
                 UAE Registered
               </span>
               <span>•</span>
               <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-xs text-tertiary">public</span>
+                <span className="material-symbols-outlined text-xs text-primary">public</span>
                 Remote-First Global Team
               </span>
             </div>

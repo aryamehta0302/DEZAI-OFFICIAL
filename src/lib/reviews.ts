@@ -95,7 +95,7 @@ export const CUSTOMER_REVIEWS: ReviewItem[] = [
     name: 'Carlos Mendez',
     location: 'Monterrey, Nuevo León, Mexico',
     rating: 5,
-    text: 'DEZAI’s digital marketing traffic-acquisition blueprint helped scale our lead acquisition significantly. Their visibility engineering and tailored SEO strategies targeted exactly the keywords we needed to dominate our regional market. Phenomenal ROI.',
+    text: 'DEZAI’s digital marketing strategy helped scale our lead acquisition significantly. Their search engine optimization and tailored marketing campaigns targeted exactly the keywords we needed to dominate our regional market. Phenomenal ROI.',
     initials: 'CM',
     avatarColor: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
     companyOrPath: 'Marketing ROI'

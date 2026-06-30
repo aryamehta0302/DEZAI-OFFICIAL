@@ -31,7 +31,7 @@ export default function TermsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
         {/* Sidebar Nav */}
         <aside className="hidden lg:block col-span-1 sticky top-28 self-start max-h-[80vh] overflow-y-auto pr-4 scrollbar-thin">
-          <h4 className="label-caps text-xs text-tertiary mb-6 select-none">Table of Contents</h4>
+          <h4 className="label-caps text-xs text-primary mb-6 select-none">Table of Contents</h4>
           <ul className="space-y-4 text-sm">
             {SECTIONS.map((sec) => (
               <li key={sec.id}>
@@ -52,12 +52,12 @@ export default function TermsPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="glass-card-static rounded-3xl p-8 md:p-12"
+            className="card-static rounded-2xl p-8 md:p-12"
           >
             {/* Header metadata */}
-            <div className="border-b border-white/10 pb-8 mb-8">
-              <span className="label-caps text-tertiary text-xs block mb-3">Legal Framework</span>
-              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-glow">
+            <div className="border-b border-border pb-8 mb-8">
+              <span className="label-caps text-primary text-xs block mb-3">Legal Framework</span>
+              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
                 Master Corporate Terms &amp; Conditions
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs text-on-surface-variant/80 font-mono mt-8 font-semibold">
@@ -87,7 +87,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 1 */}
-              <section id="definitions" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="definitions" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">1. Detailed Definitions and Interpretations</h3>
                 <div className="space-y-4">
                   <p>
@@ -111,7 +111,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 2 */}
-              <section id="ip" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="ip" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">2. Intellectual Property and Proprietary Marks</h3>
                 <div className="space-y-4">
                   <p>
@@ -124,7 +124,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 3 */}
-              <section id="scope" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="scope" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">3. Scope of Professional Agency Core Services</h3>
                 <div className="space-y-4">
                   <p>
@@ -154,7 +154,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 4 */}
-              <section id="learners" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="learners" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">4. DEZAI Learners Talent Initiative Protocols</h3>
                 <div className="space-y-4">
                   <p>
@@ -170,7 +170,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 5 */}
-              <section id="onboarding" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="onboarding" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">5. Client Onboarding, Responsibilities, and SOW Alignment</h3>
                 <div className="space-y-4">
                   <p>
@@ -186,7 +186,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 6 */}
-              <section id="financial" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="financial" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">6. Financial Provisions, Milestones, and Fee Metrics</h3>
                 <div className="space-y-4">
                   <p>
@@ -202,7 +202,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 7 */}
-              <section id="hosting" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="hosting" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">7. Hosting Infrastructure and Zero-Downtime Disclaimer</h3>
                 <p>
                   While DEZAI implements elite cloud practices configuration designed to achieve structural protection and continuous zero-downtime availability, all physical processing units and bandwidth delivery frameworks are owned, maintained, and operated by global third-party providers. Consequently, DEZAI does not provide an absolute legal warranty that access to live production environments will remain uninterrupted or error-free at all times. We explicitly disclaim all liability for systemic operational friction, localized data loss, connection drops, or commerce interruptions caused directly by hosting facility downtime, hardware disruptions, or network drops.
@@ -210,7 +210,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 8 */}
-              <section id="data-protection" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="data-protection" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">8. Data Protection, Privacy, and Structural Compliance</h3>
                 <p>
                   DEZAI enforces deep structural data protection measures across all production assets, communication networks, and repository nodes. We process user information and client operational files in full compliance with international digital safety frameworks and secure storage protocols. We apply encryption standards to code assets in transit and at rest. Access control lists are tightly maintained, ensuring that only authorized engineers, product architects, and verified project supervisors possess structural interaction rights over corporate code bases or customer databases.
@@ -218,7 +218,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 9 */}
-              <section id="liability" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="liability" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">9. Absolute Limitation of Liability and Indemnification</h3>
                 <div className="space-y-4">
                   <p>
@@ -231,7 +231,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 10 */}
-              <section id="termination" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="termination" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">10. Termination Conditions and Lifecycle Severability</h3>
                 <div className="space-y-4">
                   <p>
@@ -244,7 +244,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 11 */}
-              <section id="governing-law" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="governing-law" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">11. Governing Law and Conflict Resolution Architecture</h3>
                 <p>
                   These Terms, along with any external digital solutions agreements, are executed, governed, and interpreted strictly under the regulatory frameworks and commercial laws of our primary operational jurisdictions. Prior to initiating any formal legal or adversarial claims, both parties commit to engaging in a 30-day collaborative diagnostic window to resolve disputes amicably through executive meditation. If resolution fails, all unresolved structural disputes shall be directed exclusively to the authorized corporate courts of our primary jurisdiction.
@@ -252,7 +252,7 @@ export default function TermsPage() {
               </section>
 
               {/* Section 12 */}
-              <section id="matrices" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="matrices" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-6">12. Comprehensive Corporate Matrices &amp; Communication</h3>
                 <p className="mb-6">
                   To submit official notices, document project adjustments, raise operational feedback, or ask questions concerning these Terms, contact our administration office through our official verified networks:
@@ -260,19 +260,19 @@ export default function TermsPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs md:text-sm font-mono border-collapse">
                     <tbody>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Official Corporate Email</td>
-                        <td className="py-3 text-tertiary">team.dezaiai@gmail.com</td>
+                        <td className="py-3 text-primary">team.dezaiai@gmail.com</td>
                       </tr>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Primary Infrastructure Support</td>
                         <td className="py-3">+91 98253 36328</td>
                       </tr>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Systems Deployment Contact</td>
                         <td className="py-3">+91 63533 62927</td>
                       </tr>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Strategic Partnerships Desk</td>
                         <td className="py-3">+91 98987 60869</td>
                       </tr>

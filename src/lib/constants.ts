@@ -20,7 +20,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Web Development',
     description: 'Performant, scalable web applications built with the most modern tech stacks.',
     features: ['React / Next.js', 'Backend Engineering', 'API Development', 'Performance'],
-    color: 'tertiary',
+    color: 'primary',
   },
   {
     icon: 'smartphone',
@@ -34,7 +34,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'SaaS Development',
     description: 'End-to-end SaaS product development from architecture to deployment and scale.',
     features: ['Multi-tenancy', 'Billing Integration', 'Analytics Dashboards'],
-    color: 'tertiary',
+    color: 'primary',
   },
   {
     icon: 'dns',
@@ -44,11 +44,11 @@ export const SERVICES: ServiceItem[] = [
     color: 'primary',
   },
   {
-    icon: 'psychology',
-    title: 'AI Integrations',
-    description: 'Intelligent automation and predictive systems powered by cutting-edge AI models.',
-    features: ['LLM Integration', 'Computer Vision', 'Custom ML Models'],
-    color: 'tertiary',
+    icon: 'bar_chart',
+    title: 'Data & Analytics',
+    description: 'Data pipelines and business intelligence dashboards for informed decision making.',
+    features: ['Data Engineering', 'BI Dashboards', 'Predictive Analytics'],
+    color: 'primary',
   },
   {
     icon: 'trending_up',
@@ -61,10 +61,10 @@ export const SERVICES: ServiceItem[] = [
 
 export const CONCEPT_PROJECTS: ConceptProject[] = [
   {
-    title: 'AI Learning Platform Concept',
-    category: 'AI / EdTech',
+    title: 'Enterprise Analytics Dashboard',
+    category: 'Data / Analytics',
     stack: ['Next.js', 'Python', 'TensorFlow', 'PostgreSQL'],
-    description: 'An adaptive learning platform powered by AI that personalizes curriculum based on student performance and learning style.',
+    description: 'An adaptive learning platform that personalizes curriculum based on student performance and learning style.',
     gradient: 'from-blue-900/40 via-indigo-900/30 to-purple-900/20',
     filter: 'ai',
   },
@@ -88,7 +88,7 @@ export const CONCEPT_PROJECTS: ConceptProject[] = [
     title: 'E-Commerce Experience Concept',
     category: 'Mobile / E-Commerce',
     stack: ['Flutter', 'Firebase', 'Stripe', 'Algolia'],
-    description: 'A premium mobile shopping experience with AI-powered recommendations, AR try-ons, and seamless checkout.',
+    description: 'A premium mobile shopping experience with personalized recommendations, AR try-ons, and seamless checkout.',
     gradient: 'from-amber-900/40 via-orange-900/30 to-red-900/20',
     filter: 'mobile',
   },
@@ -121,7 +121,7 @@ export const LEARNING_PATHS: LearningPath[] = [
     icon: 'database',
     title: 'Backend Development',
     technologies: ['Node.js', 'NestJS', 'PostgreSQL', 'REST / GraphQL'],
-    color: 'tertiary',
+    color: 'primary',
   },
   {
     icon: 'stacks',
@@ -130,10 +130,10 @@ export const LEARNING_PATHS: LearningPath[] = [
     color: 'primary',
   },
   {
-    icon: 'psychology',
-    title: 'AI & Machine Learning',
-    technologies: ['Python', 'TensorFlow', 'LangChain', 'OpenAI API'],
-    color: 'tertiary',
+    icon: 'bar_chart',
+    title: 'Data Engineering',
+    technologies: ['Python', 'SQL', 'Snowflake', 'dbt'],
+    color: 'primary',
   },
   {
     icon: 'cloud',
@@ -145,7 +145,7 @@ export const LEARNING_PATHS: LearningPath[] = [
     icon: 'settings',
     title: 'DevOps',
     technologies: ['CI/CD', 'Kubernetes', 'Terraform', 'GitHub Actions'],
-    color: 'tertiary',
+    color: 'primary',
   },
   {
     icon: 'palette',
@@ -157,7 +157,7 @@ export const LEARNING_PATHS: LearningPath[] = [
     icon: 'smartphone',
     title: 'Mobile App Development',
     technologies: ['Flutter', 'React Native', 'Swift', 'Kotlin'],
-    color: 'tertiary',
+    color: 'primary',
   },
   {
     icon: 'trending_up',
@@ -169,7 +169,7 @@ export const LEARNING_PATHS: LearningPath[] = [
     icon: 'rocket_launch',
     title: 'Entrepreneurship',
     technologies: ['Product Strategy', 'Fundraising', 'Go-to-Market', 'Business Models'],
-    color: 'tertiary',
+    color: 'primary',
   },
 ];
 
@@ -231,7 +231,7 @@ export const PATH_OPTIONS = [
   'Frontend Development',
   'Backend Development',
   'Full Stack Development',
-  'AI & Machine Learning',
+  'Data Engineering',
   'Cloud Computing',
   'DevOps',
   'UI/UX Design',

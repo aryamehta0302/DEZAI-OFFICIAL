@@ -30,7 +30,7 @@ export default function PrivacyPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
         {/* Sidebar Nav */}
         <aside className="hidden lg:block col-span-1 sticky top-28 self-start max-h-[80vh] overflow-y-auto pr-4 scrollbar-thin">
-          <h4 className="label-caps text-xs text-tertiary mb-6 select-none">Table of Contents</h4>
+          <h4 className="label-caps text-xs text-primary mb-6 select-none">Table of Contents</h4>
           <ul className="space-y-4 text-sm">
             {SECTIONS.map((sec) => (
               <li key={sec.id}>
@@ -51,12 +51,12 @@ export default function PrivacyPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="glass-card-static rounded-3xl p-8 md:p-12"
+            className="card-static rounded-2xl p-8 md:p-12"
           >
             {/* Header metadata */}
-            <div className="border-b border-white/10 pb-8 mb-8">
-              <span className="label-caps text-tertiary text-xs block mb-3">Corporate Charter</span>
-              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-glow">
+            <div className="border-b border-border pb-8 mb-8">
+              <span className="label-caps text-primary text-xs block mb-3">Corporate Charter</span>
+              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
                 Privacy Policy &amp; Data Governance Charter
               </h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs text-on-surface-variant/80 font-mono mt-8">
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 2 */}
-              <section id="definitions" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="definitions" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">2. Definitional Core Architecture</h3>
                 <div className="space-y-4">
                   <p>
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 3 */}
-              <section id="taxonomy" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="taxonomy" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">3. Taxonomy of Data Vector Capture (Ingestion Channels)</h3>
                 <div className="space-y-4">
                   <p>
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 4 */}
-              <section id="rationalization" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="rationalization" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">4. Rationalization &amp; Telemetry Processing Operations</h3>
                 <div className="space-y-4">
                   <p>
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 5 */}
-              <section id="preservation" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="preservation" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">5. Cryptographic Data Preservation &amp; Housing Frameworks</h3>
                 <div className="space-y-4">
                   <p>
@@ -158,7 +158,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 6 */}
-              <section id="ai-treatment" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="ai-treatment" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">6. AI System Data Treatment &amp; Algocurrency Boundaries</h3>
                 <div className="space-y-4">
                   <p>
@@ -171,7 +171,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 7 */}
-              <section id="third-party" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="third-party" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">7. Third-Party Microservice Routing &amp; Sub-Processors</h3>
                 <p>
                   To maintain high global performance, DEZAI routes platform telemetry and web assets through external microservices, including cloud storage clusters, content distribution networks (CDNs), performance tracking services, and secure communication channels. These microservices manage infrastructure parameters in accordance with their independent privacy terms, which we advise users to review separately.
@@ -179,7 +179,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 8 */}
-              <section id="learners" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="learners" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">8. DEZAI Learners Talent Program Specific Provisions</h3>
                 <div className="space-y-4">
                   <p>
@@ -192,7 +192,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 9 */}
-              <section id="cross-border" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="cross-border" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">9. Cross-Border Data Translation &amp; Sovereign Regulatory Maps</h3>
                 <p>
                   Because DEZAI operates cross-border technology services, user data vectors may be routed or stored across international data center nodes. We deploy appropriate security structures to keep these transfers compliant with global privacy benchmarks and regional security rules.
@@ -200,7 +200,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 10 */}
-              <section id="compliance" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="compliance" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">10. User Compliance Mandates &amp; Control Mechanisms</h3>
                 <div className="space-y-4">
                   <p>
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 11 */}
-              <section id="enforcement" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="enforcement" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-4">11. Enforcement Audits &amp; Amendments</h3>
                 <p>
                   Our internal compliance officers review these data governance rules regularly. We update the version code and publication date whenever systemic shifts roll out to production environments. Continuous use of our web endpoints after updates indicates full agreement to the updated framework.
@@ -224,7 +224,7 @@ export default function PrivacyPage() {
               </section>
 
               {/* Section 12 */}
-              <section id="contact" className="scroll-mt-28 border-t border-white/5 pt-8">
+              <section id="contact" className="scroll-mt-28 border-t border-border pt-8">
                 <h3 className="text-xl font-bold text-on-surface mb-6">12. System Contact Blueprint &amp; Compliance Office Sign-Off</h3>
                 <p className="mb-6">
                   For data inquiries, access requests, or specific compliance questions, please contact our administrative offices through our official contact matrix:
@@ -232,19 +232,19 @@ export default function PrivacyPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs md:text-sm font-mono border-collapse">
                     <tbody>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Data Protection Officer Email</td>
-                        <td className="py-3 text-tertiary">team.dezaiai@gmail.com</td>
+                        <td className="py-3 text-primary">team.dezaiai@gmail.com</td>
                       </tr>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Technical Infrastructure Desk</td>
                         <td className="py-3">+91 98253 36328</td>
                       </tr>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">System Deployments Line</td>
                         <td className="py-3">+91 63533 62927</td>
                       </tr>
-                      <tr className="border-b border-white/10">
+                      <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Operational Partnerships Division</td>
                         <td className="py-3">+91 98987 60869</td>
                       </tr>

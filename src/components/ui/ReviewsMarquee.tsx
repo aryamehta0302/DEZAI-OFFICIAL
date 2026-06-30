@@ -22,8 +22,8 @@ export default function ReviewsMarquee({
   return (
     <div className="relative w-full overflow-hidden py-4 select-none">
       {/* Soft gradient fade on left and right edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
       <div 
         className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused]"
@@ -35,7 +35,7 @@ export default function ReviewsMarquee({
         {doubledReviews.map((review, i) => (
           <div
             key={`${review.id}-${i}`}
-            className="w-[320px] md:w-[380px] shrink-0 glass-card-static rounded-3xl p-6 md:p-8 flex flex-col justify-between border border-white/10"
+            className="w-[320px] md:w-[380px] shrink-0 card-elevated rounded-2xl p-6 md:p-8 flex flex-col justify-between"
           >
             <div>
               {/* Stars */}
@@ -57,16 +57,16 @@ export default function ReviewsMarquee({
             </div>
 
             {/* User details */}
-            <div className="flex items-center gap-3.5 border-t border-white/5 pt-5 mt-auto">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs md:text-sm shrink-0 border ${review.avatarColor}`}>
+            <div className="flex items-center gap-3.5 border-t border-border pt-5 mt-auto">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs md:text-sm shrink-0 ${review.avatarColor}`}>
                 {review.initials}
               </div>
               <div className="min-w-0">
                 <h4 className="font-bold text-xs md:text-sm text-on-surface leading-tight truncate">{review.name}</h4>
-                <p className="text-on-surface-variant/70 text-[10px] md:text-xs mt-0.5 leading-none truncate">
+                <p className="text-on-surface-variant text-[10px] md:text-xs mt-0.5 leading-none truncate">
                   {review.companyOrPath}
                 </p>
-                <p className="text-tertiary/80 text-[9px] md:text-[10px] label-caps mt-1.5 leading-none truncate">
+                <p className="text-tertiary text-[9px] md:text-[10px] label-caps mt-1.5 leading-none truncate">
                   {review.location.split(',').pop()?.trim() || review.location}
                 </p>
               </div>

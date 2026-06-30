@@ -9,7 +9,7 @@ import { LEARNER_REVIEWS } from '@/lib/reviews';
 import JsonLd from '@/components/layout/JsonLd';
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
@@ -38,7 +38,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['AWS', 'Flutter', 'Node.js', 'Docker'],
     accent: 'from-amber-500 to-orange-500',
     glowColor: 'rgba(245, 158, 11, 0.15)',
-    avatarBg: 'bg-amber-500/10 text-amber-500',
+    avatarBg: 'bg-amber-500/10 text-amber-600',
     badges: ['AWS Cloud Specialist', 'Mobile Lead'],
     commits: 462,
     projects: 6,
@@ -51,7 +51,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['PyTorch', 'LangGraph', 'FastAPI', 'ChromaDB'],
     accent: 'from-violet-500 to-purple-500',
     glowColor: 'rgba(139, 92, 246, 0.15)',
-    avatarBg: 'bg-violet-500/10 text-violet-500',
+    avatarBg: 'bg-violet-500/10 text-violet-600',
     badges: ['NVIDIA Certified', 'IIT Madras SIH Leader'],
     commits: 490,
     projects: 7,
@@ -64,7 +64,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['Next.js', 'FastAPI', 'MongoDB', 'LangGraph'],
     accent: 'from-emerald-500 to-teal-500',
     glowColor: 'rgba(16, 185, 129, 0.15)',
-    avatarBg: 'bg-emerald-500/10 text-emerald-500',
+    avatarBg: 'bg-emerald-500/10 text-emerald-600',
     badges: ['IBM AI Professional', 'AIML Club Research Head'],
     commits: 340,
     projects: 6,
@@ -77,7 +77,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['React', 'Next.js', 'Prisma', 'PostgreSQL'],
     accent: 'from-blue-500 to-indigo-500',
     glowColor: 'rgba(59, 130, 246, 0.15)',
-    avatarBg: 'bg-blue-500/10 text-blue-500',
+    avatarBg: 'bg-blue-500/10 text-blue-600',
     badges: ['Open Source Contributor', 'UI Specialist'],
     commits: 320,
     projects: 5,
@@ -90,7 +90,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['Node.js', 'Express.js', 'MongoDB', 'React.js'],
     accent: 'from-cyan-500 to-sky-500',
     glowColor: 'rgba(6, 182, 212, 0.15)',
-    avatarBg: 'bg-cyan-500/10 text-cyan-500',
+    avatarBg: 'bg-cyan-500/10 text-cyan-600',
     badges: ['IIT Gandhinagar Finalist', 'Backend Architect'],
     commits: 210,
     projects: 3,
@@ -103,7 +103,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['Python', 'FastAPI', 'Streamlit', 'Supervised Learning'],
     accent: 'from-rose-500 to-pink-500',
     glowColor: 'rgba(244, 63, 94, 0.15)',
-    avatarBg: 'bg-rose-500/10 text-rose-500',
+    avatarBg: 'bg-rose-500/10 text-rose-600',
     badges: ['IIIT Dharwad Top 60', 'IBM AI Certified'],
     commits: 367,
     projects: 5,
@@ -116,7 +116,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['PyTorch', 'FastAPI', 'Computer Vision', 'RAG Systems'],
     accent: 'from-yellow-500 to-amber-500',
     glowColor: 'rgba(234, 179, 8, 0.15)',
-    avatarBg: 'bg-yellow-500/10 text-yellow-500',
+    avatarBg: 'bg-yellow-500/10 text-yellow-600',
     badges: ['SSIP Grant Recipient', 'GDG Core Member'],
     commits: 512,
     projects: 6,
@@ -129,7 +129,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['Flutter', 'FastAPI', 'React', 'MongoDB'],
     accent: 'from-fuchsia-500 to-purple-500',
     glowColor: 'rgba(217, 70, 239, 0.15)',
-    avatarBg: 'bg-fuchsia-500/10 text-fuchsia-500',
+    avatarBg: 'bg-fuchsia-500/10 text-fuchsia-600',
     badges: ['NVIDIA Certified', 'Open Source Builder'],
     commits: 310,
     projects: 7,
@@ -142,7 +142,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     skills: ['Flutter', 'Android SDK', 'Java', 'WebRTC'],
     accent: 'from-teal-500 to-cyan-500',
     glowColor: 'rgba(20, 184, 166, 0.15)',
-    avatarBg: 'bg-teal-500/10 text-teal-500',
+    avatarBg: 'bg-teal-500/10 text-teal-600',
     badges: ['9Brainz Intern', 'Mobile Architect'],
     commits: 240,
     projects: 4,
@@ -202,7 +202,6 @@ export default function LearnersPage() {
       <JsonLd schema={[...courseSchemas, faqSchema, breadcrumbSchema]} />
       {/* Hero */}
       <section className="pt-32 pb-[120px] relative">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-tertiary/5 via-transparent to-transparent" />
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-3xl">
             <motion.span variants={fadeInUp} className="label-caps text-primary mb-4 block">DEZAI Learners</motion.span>
@@ -211,7 +210,7 @@ export default function LearnersPage() {
               className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6"
               style={{ letterSpacing: '-0.04em' }}
             >
-              Transform Potential<br />Into <span className="text-tertiary">Capability.</span>
+              Transform Potential<br />Into <span className="text-primary">Capability.</span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg max-w-xl leading-relaxed">
               We don&apos;t just teach code; we build careers. Our mentorship-first approach bridges the gap between learning and industry-level professional excellence.
@@ -246,8 +245,10 @@ export default function LearnersPage() {
               { icon: 'workspace_premium', title: 'Certificates & Letters', desc: 'Earn certificates and recommendation letters upon completion.' },
               { icon: 'business_center', title: 'Internship Opportunities', desc: 'Top performers get placed on real DEZAI Studio projects.' },
             ].map((item) => (
-              <motion.div key={item.title} variants={fadeInUp} className="glass-card rounded-2xl p-8 group">
-                <span className="material-symbols-outlined text-tertiary text-3xl mb-4 block group-hover:scale-110 transition-transform">{item.icon}</span>
+              <motion.div key={item.title} variants={fadeInUp} className="card-elevated rounded-2xl p-8 group">
+                <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-primary text-2xl group-hover:scale-110 transition-transform">{item.icon}</span>
+                </div>
                 <h4 className="font-bold text-lg mb-2">{item.title}</h4>
                 <p className="text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
@@ -257,8 +258,7 @@ export default function LearnersPage() {
       </section>
 
       {/* Learning Roadmap */}
-      <section className="py-[120px] relative">
-        <div className="absolute inset-0 -z-10 bg-white/[0.02] backdrop-blur-sm" />
+      <section className="py-[120px] bg-surface-dim">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
@@ -270,9 +270,9 @@ export default function LearnersPage() {
               <div className="space-y-8">
                 {[
                   { icon: 'school', title: 'Foundational Training', desc: 'Master the core technologies through hands-on labs and guided projects.', color: 'bg-primary', iconColor: 'text-on-primary', lineColor: 'bg-primary/20' },
-                  { icon: 'code', title: 'Real-World Projects', desc: 'Contribute to live commercial projects under senior supervision.', color: 'bg-tertiary', iconColor: 'text-on-tertiary', lineColor: 'bg-tertiary/20' },
+                  { icon: 'code', title: 'Real-World Projects', desc: 'Contribute to live commercial projects under senior supervision.', color: 'bg-primary', iconColor: 'text-on-tertiary', lineColor: 'bg-primary/20' },
                   { icon: 'trending_up', title: 'Professional Growth', desc: 'Job placement support, mentorship continuation, and lifelong network access.', color: 'bg-primary', iconColor: 'text-on-primary', lineColor: '' },
-                ].map((step, i) => (
+                ].map((step) => (
                   <motion.div key={step.title} variants={fadeInUp} className="flex gap-6 relative">
                     <div className="flex flex-col items-center">
                       <div className={`w-10 h-10 rounded-full ${step.color} flex items-center justify-center z-10 shrink-0`}>
@@ -306,9 +306,9 @@ export default function LearnersPage() {
                 <motion.div
                   key={card.label}
                   variants={fadeInUp}
-                  className={`glass-card p-6 rounded-2xl text-center group ${card.isPrimary ? 'hover:border-primary' : 'hover:border-tertiary'} ${card.offset}`}
+                  className={`card-elevated p-6 rounded-2xl text-center group ${card.isPrimary ? 'hover:border-primary' : 'hover:border-primary'} ${card.offset}`}
                 >
-                  <span className={`material-symbols-outlined text-4xl mb-4 block group-hover:scale-110 transition-transform ${card.isPrimary ? 'text-primary' : 'text-tertiary'}`}>{card.icon}</span>
+                  <span className={`material-symbols-outlined text-4xl mb-4 block group-hover:scale-110 transition-transform ${card.isPrimary ? 'text-primary' : 'text-primary'}`}>{card.icon}</span>
                   <div className="label-caps text-xs">{card.label}</div>
                 </motion.div>
               ))}
@@ -346,16 +346,18 @@ export default function LearnersPage() {
               <motion.div
                 key={path.title}
                 variants={fadeInUp}
-                className={`glass-card rounded-2xl p-6 group cursor-pointer ${path.color === 'primary' ? 'hover:border-primary' : 'hover:border-tertiary'}`}
+                className={`card-elevated rounded-2xl p-6 group cursor-pointer ${path.color === 'primary' ? 'hover:border-primary' : 'hover:border-primary'}`}
               >
-                <span className={`material-symbols-outlined text-3xl mb-4 block group-hover:scale-110 transition-transform ${path.color === 'primary' ? 'text-primary' : 'text-tertiary'}`}>
+                <span className={`material-symbols-outlined text-3xl mb-4 block group-hover:scale-110 transition-transform ${path.color === 'primary' ? 'text-primary' : 'text-primary'}`}>
                   {path.icon}
                 </span>
                 <h4 className="font-bold text-sm mb-3">{path.title}</h4>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2 mt-4 relative">
+                  <div className="absolute top-1/2 left-0 w-full h-[1px] bg-border -z-10" />
                   {path.technologies.map((tech) => (
-                    <span key={tech} className="text-[10px] label-caps px-2 py-0.5 rounded-full bg-white/5 text-on-surface-variant">
-                      {tech}
+                    <span key={tech} className="text-[10px] label-caps px-2 py-0.5 bg-surface text-on-surface-variant font-medium relative group-hover:text-primary transition-colors">
+                      <span className="absolute -left-[3px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-border group-hover:bg-primary transition-colors" />
+                      <span className="pl-2">{tech}</span>
                     </span>
                   ))}
                 </div>
@@ -365,23 +367,20 @@ export default function LearnersPage() {
         </div>
       </section>
 
-      {/* Hall of Learners — Highly Interactive Dashboard */}
-      <section className="py-[120px] relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-white/[0.02] backdrop-blur-sm" />
-        
-        {/* Floating background decorative blobs */}
-        <div className="absolute top-1/2 left-0 w-80 h-80 rounded-full bg-primary/[0.02] blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-tertiary/[0.02] blur-[100px] pointer-events-none" />
+      {/* Hall of Learners */}
+      <section className="py-[120px] relative overflow-hidden bg-surface-dim">
+        {/* Isometric Pattern Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(30deg, #1a2b5a 12%, transparent 12.5%, transparent 87%, #1a2b5a 87.5%, #1a2b5a), linear-gradient(150deg, #1a2b5a 12%, transparent 12.5%, transparent 87%, #1a2b5a 87.5%, #1a2b5a), linear-gradient(30deg, #1a2b5a 12%, transparent 12.5%, transparent 87%, #1a2b5a 87.5%, #1a2b5a), linear-gradient(150deg, #1a2b5a 12%, transparent 12.5%, transparent 87%, #1a2b5a 87.5%, #1a2b5a), linear-gradient(60deg, #1a2b5a77 25%, transparent 25.5%, transparent 75%, #1a2b5a77 75%, #1a2b5a77), linear-gradient(60deg, #1a2b5a77 25%, transparent 25.5%, transparent 75%, #1a2b5a77 75%, #1a2b5a77)', backgroundSize: '20px 35px', backgroundPosition: '0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px' }} />
 
-        <div className="max-w-[1280px] mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="label-caps text-tertiary mb-4 block text-[11px] tracking-[0.25em]">Talent Directory</span>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-glow" style={{ letterSpacing: '-0.03em' }}>
+            <span className="label-caps text-primary mb-4 block text-[11px] tracking-[0.25em]">Talent Directory</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4" style={{ letterSpacing: '-0.03em' }}>
               Hall of Learners
             </h2>
             <p className="text-on-surface-variant max-w-xl mx-auto">
@@ -390,116 +389,105 @@ export default function LearnersPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Active Learner Telemetry Console (40% width on large screens) */}
+            {/* Active Learner Profile Card */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="col-span-1 lg:col-span-5 h-full"
             >
-              <div className="glass-card-static rounded-3xl p-8 border border-white/10 flex flex-col justify-between min-h-[560px] relative overflow-hidden group shadow-2xl">
-                {/* Accent background glow inside the console */}
-                <div
-                  className="absolute -right-20 -top-20 w-60 h-60 rounded-full blur-[100px] pointer-events-none transition-all duration-700"
-                  style={{ background: `linear-gradient(135deg, ${activeLearner.glowColor}, transparent)` }}
-                />
-
+              <div className="card-elevated rounded-2xl p-8 flex flex-col justify-between min-h-[560px] relative overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.06)] group/profile border border-border hover:border-primary/30 transition-colors">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent opacity-0 group-hover/profile:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 <div className="relative z-10 space-y-6">
                   <div className="flex items-center gap-4">
-                    {/* Avatar with dynamic glow ring */}
-                    <div className="relative">
-                      <div className={`absolute -inset-1.5 rounded-full bg-gradient-to-r ${activeLearner.accent} blur-sm opacity-60 animate-pulse`} />
-                      <div className={`w-16 h-16 rounded-full ${activeLearner.avatarBg} flex items-center justify-center font-bold text-xl relative z-10 border border-white/10 font-mono shadow-md`}>
-                        {activeLearner.name.split(' ').map(n => n[0]).join('')}
-                      </div>
+                    {/* Avatar */}
+                    <div className={`w-16 h-16 rounded-full ${activeLearner.avatarBg} flex items-center justify-center font-bold text-xl border border-border font-mono shadow-sm relative`}>
+                      <div className="absolute inset-[-4px] rounded-full border border-primary/20 animate-[spin_10s_linear_infinite]" />
+                      {activeLearner.name.split(' ').map(n => n[0]).join('')}
                     </div>
 
                     <div>
-                      <h3 className="text-2xl font-extrabold text-white text-glow leading-tight tracking-tight">{activeLearner.name}</h3>
-                      <p className="text-xs text-on-surface-variant/80 font-semibold label-caps mt-1.5 flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
+                      <h3 className="text-2xl font-extrabold text-on-surface leading-tight tracking-tight">{activeLearner.name}</h3>
+                      <p className="text-xs text-on-surface-variant font-semibold label-caps mt-1.5 flex items-center gap-2">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
                         {activeLearner.path}
                       </p>
                     </div>
                   </div>
 
-                  {/* Bio / Mission statement */}
-                  <p className="text-sm text-on-surface-variant leading-relaxed italic bg-white/[0.01] border border-white/5 p-4 rounded-xl">
+                  {/* Bio */}
+                  <p className="text-sm text-on-surface-variant leading-relaxed italic bg-surface-dim border border-border p-4 rounded-xl">
                     &ldquo;{activeLearner.bio}&rdquo;
                   </p>
 
-                  {/* Stats & Progression */}
+                  {/* Stats */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/[0.02] border border-white/5 p-4 rounded-2xl">
-                      <span className="text-[9px] label-caps text-white/40 block mb-1">Ecosystem Commits</span>
-                      <div className="text-lg font-mono font-bold text-white tracking-wide">{activeLearner.commits}</div>
+                    <div className="bg-surface-dim border border-border p-4 rounded-2xl group/stat hover:border-primary/40 transition-colors relative overflow-hidden">
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transform -translate-x-full group-hover/stat:translate-x-full transition-transform duration-1000" />
+                      <span className="text-[9px] label-caps text-outline block mb-1 group-hover/stat:text-primary transition-colors">Ecosystem Commits</span>
+                      <div className="text-lg font-mono font-bold text-on-surface tracking-wide">{activeLearner.commits}</div>
                     </div>
-                    <div className="bg-white/[0.02] border border-white/5 p-4 rounded-2xl">
-                      <span className="text-[9px] label-caps text-white/40 block mb-1">Production Projects</span>
-                      <div className="text-lg font-mono font-bold text-white tracking-wide">{activeLearner.projects}</div>
+                    <div className="bg-surface-dim border border-border p-4 rounded-2xl group/stat hover:border-primary/40 transition-colors relative overflow-hidden">
+                      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transform -translate-x-full group-hover/stat:translate-x-full transition-transform duration-1000" />
+                      <span className="text-[9px] label-caps text-outline block mb-1 group-hover/stat:text-primary transition-colors">Production Projects</span>
+                      <div className="text-lg font-mono font-bold text-on-surface tracking-wide">{activeLearner.projects}</div>
                     </div>
                   </div>
 
                   {/* Progression meter */}
                   <div className="space-y-2">
-                    <div className="flex justify-between text-xs label-caps text-white/60 font-semibold">
+                    <div className="flex justify-between text-xs label-caps text-on-surface-variant font-semibold">
                       <span>Capability Level</span>
                       <span>L{activeLearner.level} / L5</span>
                     </div>
-                    <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden">
+                    <div className="w-full bg-surface-high rounded-full h-1.5 overflow-hidden">
                       <motion.div
                         key={activeLearner.name + '-level'}
                         initial={{ width: 0 }}
                         animate={{ width: `${(activeLearner.level / 5) * 100}%` }}
-                        transition={{ duration: 0.5, ease: 'easeOut' }}
-                        className={`h-full bg-gradient-to-r ${activeLearner.accent}`}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        className={`h-full bg-gradient-to-r ${activeLearner.accent} rounded-full`}
                       />
                     </div>
                   </div>
 
-                  {/* Verified Skills */}
+                  {/* Skills - Technical Matrix */}
                   <div>
-                    <span className="text-[10px] label-caps text-white/40 block mb-2">Verified Skill Stack</span>
-                    <div className="flex flex-wrap gap-1.5">
+                    <span className="text-[10px] label-caps text-outline block mb-3">Verified Skill Stack</span>
+                    <div className="grid grid-cols-2 gap-2">
                       {activeLearner.skills.map((skill) => (
-                        <span key={skill} className="text-[10px] label-caps px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-on-surface">
-                          {skill}
-                        </span>
+                        <div key={skill} className="flex items-center gap-2 group/skill">
+                          <div className="w-1.5 h-1.5 rounded-sm bg-border group-hover/skill:bg-primary transition-colors" />
+                          <span className="text-[11px] font-mono font-medium text-on-surface-variant group-hover/skill:text-on-surface transition-colors">
+                            {skill}
+                          </span>
+                        </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Badges */}
                   <div>
-                    <span className="text-[10px] label-caps text-white/40 block mb-2">Distinguished Achievements</span>
+                    <span className="text-[10px] label-caps text-outline block mb-2">Distinguished Achievements</span>
                     <div className="flex flex-wrap gap-2">
                       {activeLearner.badges.map((badge) => (
-                        <div key={badge} className="flex items-center gap-1.5 bg-white/5 border border-white/5 px-2.5 py-1 rounded-lg text-xs text-on-surface-variant font-medium">
-                          <span className="material-symbols-outlined text-tertiary text-xs">workspace_premium</span>
+                        <div key={badge} className="flex items-center gap-1.5 bg-surface-dim border border-border px-2.5 py-1 rounded-lg text-xs text-on-surface-variant font-medium">
+                          <span className="material-symbols-outlined text-primary text-xs">workspace_premium</span>
                           {badge}
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-
-                {/* Simulated Terminal Telemetry */}
-                <div className="mt-8 pt-4 border-t border-white/5 font-mono text-[9px] text-white/30 space-y-1">
-                  <div className="flex items-center gap-1">
-                    <span className="text-emerald-500/60">&gt;</span>
-                    <span>SYSTEM: Ingesting credentials for {activeLearner.name.toUpperCase()}...</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-emerald-500/60">&gt;</span>
-                    <span>STATUS: Verified Level {activeLearner.level} {activeLearner.path.split(' ')[0]} Specialist</span>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
-            {/* Learner Grid Selection Panel (60% width on large screens) */}
+            {/* Learner Grid Selection */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="col-span-1 lg:col-span-7"
@@ -513,43 +501,36 @@ export default function LearnersPage() {
                     <button
                       key={learner.name}
                       onClick={() => setActiveLearnerIndex(index)}
-                      className={`relative text-left p-5 rounded-2xl border transition-all duration-300 overflow-hidden group focus:outline-none flex flex-col justify-between h-36 ${
+                      className={`relative text-left p-5 rounded-2xl border transition-all duration-300 overflow-hidden group focus:outline-none focus-ring flex flex-col justify-between h-36 ${
                         isActive
-                          ? `bg-white/[0.04] border-white/20 shadow-xl shadow-black/30`
-                          : `bg-white/[0.01] border-white/5 hover:bg-white/[0.02] hover:border-white/10`
+                          ? 'bg-white border-primary/20 shadow-[0_4px_20px_rgba(26,43,90,0.08)]'
+                          : 'bg-white border-border hover:border-border-hover hover:shadow-sm'
                       }`}
                     >
-                      {/* Hover background glow ring */}
-                      <div
-                        className={`absolute -inset-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl`}
-                        style={{ background: `linear-gradient(135deg, ${learner.glowColor}, transparent)` }}
-                      />
-
                       <div className="flex items-start gap-3 relative z-10 w-full">
-                        {/* Initials Avatar */}
                         <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0 transition-colors ${
                           isActive
                             ? `bg-gradient-to-br ${learner.accent} text-white`
-                            : `${learner.avatarBg} border border-white/5`
+                            : `${learner.avatarBg} border border-border`
                         }`}>
                           {initials}
                         </div>
 
                         <div className="min-w-0 flex-1">
-                          <h4 className="font-bold text-sm text-white truncate group-hover:text-primary transition-colors">{learner.name}</h4>
+                          <h4 className="font-bold text-sm text-on-surface truncate group-hover:text-primary transition-colors">{learner.name}</h4>
                           <p className="text-[9px] label-caps text-on-surface-variant truncate mt-1">{learner.path}</p>
                         </div>
                       </div>
 
-                      {/* Small progression meter on the card */}
+                      {/* Progress meter */}
                       <div className="w-full relative z-10 mt-auto">
-                        <div className="flex justify-between text-[8px] label-caps text-white/40 mb-1.5">
+                        <div className="flex justify-between text-[8px] label-caps text-outline mb-1.5">
                           <span>Progress</span>
                           <span>L{learner.level}</span>
                         </div>
-                        <div className="w-full bg-white/5 rounded-full h-1 overflow-hidden">
+                        <div className="w-full bg-surface-high rounded-full h-1 overflow-hidden">
                           <div
-                            className={`h-full bg-gradient-to-r ${learner.accent} transition-all duration-500`}
+                            className={`h-full bg-gradient-to-r ${learner.accent} transition-all duration-500 rounded-full`}
                             style={{ width: `${(learner.level / 5) * 100}%` }}
                           />
                         </div>
@@ -571,8 +552,8 @@ export default function LearnersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="label-caps text-tertiary mb-4 block">Success Stories</span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-glow">Success Stories</h2>
+            <span className="label-caps text-primary mb-4 block">Success Stories</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Success Stories</h2>
             <p className="text-on-surface-variant max-w-xl mx-auto">See how aspiring professionals build portfolios, gain mentorship, and land roles through DEZAI Learners.</p>
           </motion.div>
         </div>
@@ -580,8 +561,7 @@ export default function LearnersPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-[120px] relative">
-        <div className="absolute inset-0 -z-10 bg-white/[0.02] backdrop-blur-sm" />
+      <section className="py-[120px] bg-surface-dim">
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -599,11 +579,11 @@ export default function LearnersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="glass-card-static p-6 rounded-2xl group cursor-pointer"
+                className="card-static p-6 rounded-2xl group cursor-pointer"
               >
                 <summary className="font-bold flex justify-between items-center list-none">
                   {faq.question}
-                  <span className="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+                  <span className="material-symbols-outlined group-open:rotate-180 transition-transform text-on-surface-variant">expand_more</span>
                 </summary>
                 <p className="mt-4 text-on-surface-variant leading-relaxed">{faq.answer}</p>
               </motion.details>
@@ -615,12 +595,12 @@ export default function LearnersPage() {
       {/* CTA */}
       <section className="py-[120px]">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-[1280px] mx-auto px-6 text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-glow">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
             Ready To Start Your Journey?
           </h2>
           <p className="text-on-surface-variant mb-8 max-w-lg mx-auto">
@@ -628,7 +608,7 @@ export default function LearnersPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-tertiary text-on-tertiary px-10 py-5 rounded-2xl font-bold text-xl hover:shadow-[0_0_50px_rgba(245,158,11,0.4)] transition-all hover:scale-105"
+            className="inline-block bg-primary text-on-tertiary px-10 py-5 rounded-2xl font-bold text-xl hover:bg-primary-dim hover:shadow-[0_12px_40px_rgba(212,168,83,0.2)] transition-all"
           >
             Apply as a Learner
           </Link>
