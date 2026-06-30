@@ -202,8 +202,8 @@ export default function LearnersPage() {
       <JsonLd schema={[...courseSchemas, faqSchema, breadcrumbSchema]} />
       {/* Hero */}
       <section className="pt-32 pb-[120px] relative">
-        <div className="max-w-[1280px] mx-auto px-6">
-          <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-3xl">
+        <div className="max-w-[1280px] mx-auto px-6 flex flex-col items-center">
+          <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-3xl text-center">
             <motion.span variants={fadeInUp} className="label-caps text-primary mb-4 block">DEZAI Learners</motion.span>
             <motion.h1
               variants={fadeInUp}
@@ -212,7 +212,7 @@ export default function LearnersPage() {
             >
               Transform Potential<br />Into <span className="text-primary">Capability.</span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg max-w-xl leading-relaxed">
+            <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg max-w-xl mx-auto leading-relaxed">
               We don&apos;t just teach code; we build careers. Our mentorship-first approach bridges the gap between learning and industry-level professional excellence.
             </motion.p>
           </motion.div>

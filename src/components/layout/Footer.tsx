@@ -68,6 +68,18 @@ export default function Footer() {
                 +971 55 227 9475
               </a>
             </li>
+            <li>
+              <a href="tel:+919898760869" className="hover:text-primary transition-colors flex items-center gap-2">
+                <span className="material-symbols-outlined text-xs text-tertiary">phone</span>
+                +91 98987 60869
+              </a>
+            </li>
+            <li>
+              <a href="tel:+916353362927" className="hover:text-primary transition-colors flex items-center gap-2">
+                <span className="material-symbols-outlined text-xs text-tertiary">phone</span>
+                +91 63533 62927
+              </a>
+            </li>
             <li className="pt-2 border-t border-border">
               <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             </li>
