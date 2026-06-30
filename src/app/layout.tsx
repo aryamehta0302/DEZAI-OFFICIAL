@@ -15,6 +15,18 @@ export const metadata: Metadata = {
   authors: [{ name: "DEZAI Team", url: "https://dezai.com/studio" }],
   creator: "DEZAI",
   publisher: "DEZAI",
+  category: "technology",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "DEZAI",
+  },
   title: {
     default: "DEZAI | Build Products. Build People. Build The Future.",
     template: "%s | DEZAI",
@@ -93,7 +105,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code",
+    google: "j5g08xXZXjqarQj6P7tZuhMR3wcCThQ7wguYPcxjkvw",
     yandex: "yandex-verification-code",
     yahoo: "yahoo-verification-code",
   },

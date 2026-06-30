@@ -22,8 +22,12 @@ export default function Home() {
     "name": "DEZAI",
     "url": "https://dezai.com",
     "logo": "https://dezai.com/logo-brand.png",
-    "email": "team.dezaiai@gmail.com",
-    "telephone": "+971552279475",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971552279475",
+      "email": "team.dezaiai@gmail.com",
+      "contactType": "customer service"
+    },
     "description": "UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.",
     "address": {
       "@type": "PostalAddress",

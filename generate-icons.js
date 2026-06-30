@@ -1,12 +1,12 @@
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const pngToIco = require('png-to-ico').default || require('png-to-ico');
 
 const inputImagePath = path.join(__dirname, 'public', 'logo-brand.png');
 const appDir = path.join(__dirname, 'src', 'app');
 const iconsDir = path.join(__dirname, 'public', 'icons');
 
-// Ensure directories exist
 if (!fs.existsSync(iconsDir)) {
   fs.mkdirSync(iconsDir, { recursive: true });
 }
@@ -16,39 +16,50 @@ async function generateIcons() {
     const metadata = await sharp(inputImagePath).metadata();
     const maxDim = Math.max(metadata.width, metadata.height);
     
-    // We will pad the image to be a perfect square with a transparent background
-    const squareImage = sharp(inputImagePath).resize(maxDim, maxDim, {
+    // Pad to square with transparent background
+    const squareBuffer = await sharp(inputImagePath).resize(maxDim, maxDim, {
       fit: 'contain',
       background: { r: 0, g: 0, b: 0, alpha: 0 }
-    });
+    }).toBuffer();
 
-    console.log('Generating Next.js App Router icons...');
+    console.log('Generating base PNG assets...');
     
-    // icon.png (fallback/high-res, 512x512)
-    await squareImage.clone().resize(512, 512).toFile(path.join(appDir, 'icon.png'));
+    // 512x512
+    await sharp(squareBuffer).resize(512, 512).toFile(path.join(appDir, 'icon.png'));
+    await sharp(squareBuffer).resize(512, 512).toFile(path.join(iconsDir, 'android-chrome-512x512.png'));
     
-    // favicon-16x16.png
-    await squareImage.clone().resize(16, 16).toFile(path.join(appDir, 'favicon-16x16.png'));
+    // 192x192
+    await sharp(squareBuffer).resize(192, 192).toFile(path.join(iconsDir, 'android-chrome-192x192.png'));
     
-    // favicon-32x32.png
-    await squareImage.clone().resize(32, 32).toFile(path.join(appDir, 'favicon-32x32.png'));
+    // 180x180 (Apple)
+    await sharp(squareBuffer).resize(180, 180).toFile(path.join(appDir, 'apple-icon.png'));
     
-    // apple-icon.png (180x180)
-    await squareImage.clone().resize(180, 180).toFile(path.join(appDir, 'apple-icon.png'));
+    // 150x150 (Windows Tile)
+    await sharp(squareBuffer).resize(150, 150).toFile(path.join(iconsDir, 'mstile-150x150.png'));
     
-    // Generate actual favicon.ico from 32x32 png (Sharp doesn't natively do .ico well, but simple rename or using 32x32 png as fallback often works. Let's just create a 32x32 png and rename to .ico for simplicity, or omit .ico and let icon.png handle it)
-    // Actually, Next.js supports `.ico`, but `icon.png` is preferred. Let's create an `icon.ico` just in case, but usually Next.js handles png perfectly.
-    // I'll skip favicon.ico as icon.png (and favicon.ico if generated manually) are interchangeable in Next 15, but user requested favicon.ico.
-    // A 32x32 PNG renamed to .ico is technically invalid but works in many modern browsers. We'll stick to Next.js best practice which is `icon.tsx` or `icon.png`. We'll just generate the PNGs.
-    
-    console.log('Generating Manifest icons...');
-    // android-chrome-192x192.png
-    await squareImage.clone().resize(192, 192).toFile(path.join(iconsDir, 'android-chrome-192x192.png'));
-    
-    // android-chrome-512x512.png
-    await squareImage.clone().resize(512, 512).toFile(path.join(iconsDir, 'android-chrome-512x512.png'));
+    // Favicons
+    const p16Path = path.join(appDir, 'icon-16x16.png');
+    const p32Path = path.join(appDir, 'icon-32x32.png');
+    const p48Path = path.join(appDir, 'icon-48x48.png');
 
-    console.log('Successfully generated all favicon assets!');
+    await sharp(squareBuffer).resize(16, 16).toFile(p16Path);
+    await sharp(squareBuffer).resize(32, 32).toFile(p32Path);
+    await sharp(squareBuffer).resize(48, 48).toFile(p48Path);
+    
+    console.log('Generating multi-resolution favicon.ico...');
+    // Create true multi-resolution .ico
+    const icoBuffer = await pngToIco([p16Path, p32Path, p48Path]);
+    fs.writeFileSync(path.join(appDir, 'favicon.ico'), icoBuffer);
+
+    // Create mask-icon.svg
+    const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" fill="none" stroke="black" stroke-width="8" />
+  <path d="M 35 25 L 55 25 Q 75 25 75 50 Q 75 75 55 75 L 35 75 Z" fill="black" />
+  <path d="M 45 35 L 55 35 Q 65 35 65 50 Q 65 65 55 65 L 45 65 Z" fill="white" />
+</svg>`;
+    fs.writeFileSync(path.join(iconsDir, 'mask-icon.svg'), svgContent);
+
+    console.log('Successfully generated all required favicon assets!');
   } catch (error) {
     console.error('Error generating icons:', error);
   }
