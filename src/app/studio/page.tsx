@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
@@ -149,7 +149,7 @@ export default function StudioPage() {
     "provider": {
       "@type": "Organization",
       "name": "DEZAI",
-      "url": "https://dezai.com"
+      "url": "https://dezai.org"
     }
   }));
 
@@ -174,13 +174,13 @@ export default function StudioPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://dezai.com"
+        "item": "https://dezai.org"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Studio",
-        "item": "https://dezai.com/studio"
+        "item": "https://dezai.org/studio"
       }
     ]
   };
@@ -270,7 +270,7 @@ export default function StudioPage() {
             {[
               { icon: 'bolt', title: 'Fast Execution', desc: 'Rapid, milestone-driven delivery without cutting corners.' },
               { icon: 'visibility', title: 'Transparency', desc: 'Full visibility into progress, budget, and timeline at all times.' },
-              { icon: 'memory', title: 'Modern Technology', desc: 'We use the latest, battle-tested stacks — not legacy tools.' },
+              { icon: 'memory', title: 'Modern Technology', desc: 'We use the latest, battle-tested stacks â€” not legacy tools.' },
               { icon: 'handshake', title: 'Long-term Partnerships', desc: 'We build relationships, not just projects. Your growth is ours.' },
             ].map((v) => (
               <motion.div key={v.title} variants={fadeInUp} className="card-elevated rounded-2xl p-8 text-center">
@@ -425,3 +425,4 @@ export default function StudioPage() {
     </>
   );
 }
+

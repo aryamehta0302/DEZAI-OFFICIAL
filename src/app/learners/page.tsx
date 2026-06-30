@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ const fadeInUp = {
 };
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
-/* ─────────────────── Hall of Learners Data ─────────────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Hall of Learners Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 interface Learner {
   name: string;
@@ -161,7 +161,7 @@ export default function LearnersPage() {
     "provider": {
       "@type": "Organization",
       "name": "DEZAI",
-      "url": "https://dezai.com"
+      "url": "https://dezai.org"
     }
   }));
 
@@ -186,13 +186,13 @@ export default function LearnersPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://dezai.com"
+        "item": "https://dezai.org"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Learners",
-        "item": "https://dezai.com/learners"
+        "item": "https://dezai.org/learners"
       }
     ]
   };
@@ -617,3 +617,4 @@ export default function LearnersPage() {
     </>
   );
 }
+

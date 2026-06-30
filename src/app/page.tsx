@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -20,8 +20,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "DEZAI",
-    "url": "https://dezai.com",
-    "logo": "https://dezai.com/logo-brand.png",
+    "url": "https://dezai.org",
+    "logo": "https://dezai.org/logo-brand.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+971552279475",
@@ -45,12 +45,12 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "DEZAI",
-    "url": "https://dezai.com",
+    "url": "https://dezai.org",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://dezai.com/search?q={search_term_string}"
+        "urlTemplate": "https://dezai.org/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -279,3 +279,4 @@ export default function Home() {
     </>
   );
 }
+

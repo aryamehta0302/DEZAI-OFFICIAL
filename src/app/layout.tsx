@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -10,9 +10,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dezai.com"),
+  metadataBase: new URL("https://dezai.org"),
   applicationName: "DEZAI",
-  authors: [{ name: "DEZAI Team", url: "https://dezai.com/studio" }],
+  authors: [{ name: "DEZAI Team", url: "https://dezai.org/studio" }],
   creator: "DEZAI",
   publisher: "DEZAI",
   category: "technology",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "DEZAI",
-    url: "https://dezai.com",
+    url: "https://dezai.org",
     images: [
       {
         url: "/icon.png",
@@ -140,3 +140,4 @@ export default function RootLayout({
     </html>
   );
 }
+

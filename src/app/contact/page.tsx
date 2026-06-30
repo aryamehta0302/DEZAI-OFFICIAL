@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -305,11 +305,11 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "name": "Contact DEZAI",
     "description": "Start a project with DEZAI Studio or apply to join DEZAI Learners mentorship program.",
-    "url": "https://dezai.com/contact",
+    "url": "https://dezai.org/contact",
     "mainEntity": {
       "@type": "Organization",
       "name": "DEZAI",
-      "url": "https://dezai.com",
+      "url": "https://dezai.org",
       "email": "team.dezaiai@gmail.com",
       "telephone": "+971552279475",
       "areaServed": "Global"
@@ -324,13 +324,13 @@ export default function ContactPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://dezai.com"
+        "item": "https://dezai.org"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Contact",
-        "item": "https://dezai.com/contact"
+        "item": "https://dezai.org/contact"
       }
     ]
   };
@@ -350,7 +350,7 @@ export default function ContactPage() {
               Let&apos;s Connect.
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg max-w-xl mx-auto leading-relaxed">
-              Whether you&apos;re a business looking to scale or a learner ready to grow — we&apos;d love to hear from you.
+              Whether you&apos;re a business looking to scale or a learner ready to grow â€” we&apos;d love to hear from you.
             </motion.p>
           </motion.div>
         </div>
@@ -409,7 +409,7 @@ export default function ContactPage() {
                 <span className="material-symbols-outlined text-xs text-primary">verified</span>
                 UAE Registered
               </span>
-              <span>•</span>
+              <span>â€¢</span>
               <span className="flex items-center gap-1">
                 <span className="material-symbols-outlined text-xs text-primary">public</span>
                 Remote-First Global Team
@@ -421,3 +421,4 @@ export default function ContactPage() {
     </>
   );
 }
+

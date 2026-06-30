@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 
@@ -252,7 +252,7 @@ export default function PrivacyPage() {
                   </table>
                 </div>
                 <div className="mt-8 text-center text-xs text-on-surface-variant/60 font-medium select-none">
-                  DEZAI Compliance Office — Systemic Verification Approved 2026
+                  dezai.orgpliance Office â€” Systemic Verification Approved 2026
                 </div>
               </section>
 
@@ -263,3 +263,4 @@ export default function PrivacyPage() {
     </div>
   );
 }
+

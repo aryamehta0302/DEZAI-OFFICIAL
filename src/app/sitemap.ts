@@ -1,7 +1,7 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://dezai.com';
+  const baseUrl = 'https://dezai.org';
   const currentDate = new Date().toISOString();
 
   return [
@@ -49,3 +49,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
+
