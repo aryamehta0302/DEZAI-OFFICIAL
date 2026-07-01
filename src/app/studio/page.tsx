@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
@@ -309,9 +309,12 @@ export default function StudioPage() {
                 name: 'Dhairya Desai',
                 role: 'Founder & CEO',
                 image: '/founder-ceo.jpeg',
-                pos: 'object-top',
+                pos: 'object-[center_15%]',
                 zoom: false,
+                scale: 0.93,
+                transformOrigin: 'center',
                 objectFit: 'object-cover',
+                bg: 'bg-[#d5d5d5]',
                 skills: ['Strategy', 'Product Architecture', 'Scale'],
                 bio: 'Visionary product architect leading DEZAI\'s global strategy, business development, and technology roadmap.',
               },
