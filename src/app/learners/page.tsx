@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ const fadeInUp = {
 };
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Hall of Learners Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────── Hall of Learners Data ─────────────────── */
 
 interface Learner {
   name: string;
@@ -197,9 +197,22 @@ export default function LearnersPage() {
     ]
   };
 
+  const educationalOrgSchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "DEZAI Learners",
+    "description": "Mentorship-driven talent development ecosystem bridging the gap between learning and industry-level professional excellence.",
+    "url": "https://dezai.org/learners",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "DEZAI",
+      "url": "https://dezai.org"
+    }
+  };
+
   return (
     <>
-      <JsonLd schema={[...courseSchemas, faqSchema, breadcrumbSchema]} />
+      <JsonLd schema={[educationalOrgSchema, ...courseSchemas, faqSchema, breadcrumbSchema]} />
       {/* Hero */}
       <section className="pt-32 pb-[120px] relative">
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col items-center">

@@ -8,8 +8,8 @@ let supabase: SupabaseClient;
 if (supabaseUrl && supabaseUrl.startsWith('http')) {
   supabase = createClient(supabaseUrl, supabaseAnonKey);
 } else {
-  // Create a dummy client for build time — API routes will fail gracefully
-  supabase = createClient('https://placeholder.supabase.co', 'placeholder');
+  // Fallback client for static builds
+  supabase = createClient('https://build.dezai.org', 'build-key');
 }
 
 export { supabase };

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -350,7 +350,7 @@ export default function ContactPage() {
               Let&apos;s Connect.
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg max-w-xl mx-auto leading-relaxed">
-              Whether you&apos;re a business looking to scale or a learner ready to grow â€” we&apos;d love to hear from you.
+              Whether you&apos;re a business looking to scale or a learner ready to grow — we&apos;d love to hear from you.
             </motion.p>
           </motion.div>
         </div>
@@ -409,7 +409,7 @@ export default function ContactPage() {
                 <span className="material-symbols-outlined text-xs text-primary">verified</span>
                 UAE Registered
               </span>
-              <span>â€¢</span>
+              <span>•</span>
               <span className="flex items-center gap-1">
                 <span className="material-symbols-outlined text-xs text-primary">public</span>
                 Remote-First Global Team

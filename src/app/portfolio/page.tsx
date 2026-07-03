@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import JsonLd from '@/components/layout/JsonLd';
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Solutions Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────── Solutions Data ─────────────────── */
 
 interface SolutionFaq {
   question: string;
@@ -37,7 +37,7 @@ const SOLUTIONS: Solution[] = [
     accent: 'from-amber-500 to-orange-500',
     accentBg: 'bg-amber-500/10',
     accentText: 'text-amber-600',
-    challenge: 'Students lack clarity about career direction. Without structured guidance, they invest years in pathways that don\'t align with their strengths or market demand â€” leading to underemployment and career dissatisfaction.',
+    challenge: 'Students lack clarity about career direction. Without structured guidance, they invest years in pathways that don\'t align with their strengths or market demand — leading to underemployment and career dissatisfaction.',
     whoFor: 'Higher Education Institutions, Career Counselors, and Students seeking dynamic pathways.',
     approach: 'Analyzes student interests, aptitudes, academic history, and live job market telemetry to generate personalized, dynamic career roadmaps.',
     benefits: [
@@ -147,7 +147,7 @@ const SOLUTIONS: Solution[] = [
     accent: 'from-rose-500 to-pink-500',
     accentBg: 'bg-rose-500/10',
     accentText: 'text-rose-600',
-    challenge: 'Limited access to personalized guidance. Human mentors are scarce, expensive, and unavailable outside business hours â€” leaving students without support when they need it most.',
+    challenge: 'Limited access to personalized guidance. Human mentors are scarce, expensive, and unavailable outside business hours — leaving students without support when they need it most.',
     whoFor: 'Learners, Academic Support Departments, and Bootcamps.',
     approach: '24/7 Smart mentorship that provides contextual career advice, technical guidance, interview preparation, and motivational support tailored to each student\'s journey.',
     benefits: [
@@ -169,7 +169,7 @@ const SOLUTIONS: Solution[] = [
     accent: 'from-yellow-500 to-amber-500',
     accentBg: 'bg-yellow-500/10',
     accentText: 'text-yellow-600',
-    challenge: 'Attendance data lacks behavioral insights. Traditional systems track presence but miss engagement quality â€” failing to identify students who are physically present but mentally disengaged.',
+    challenge: 'Attendance data lacks behavioral insights. Traditional systems track presence but miss engagement quality — failing to identify students who are physically present but mentally disengaged.',
     whoFor: 'Institutional Administrators, Course Instructors, and Advisors.',
     approach: 'AI analyzes participation patterns, engagement depth, and behavioral signals to generate early-warning indicators for student success teams.',
     benefits: [
@@ -215,7 +215,7 @@ const SOLUTIONS: Solution[] = [
     accentText: 'text-lime-600',
     challenge: 'Students struggle to monetize skills while studying. Despite having marketable abilities, they lack the business knowledge and platform access to earn independently.',
     whoFor: 'Aspiring Freelancers, Side-Hustlers, and Skill Centers.',
-    approach: 'AI-guided freelancing growth platform that helps students build profiles, find clients, price services, and manage projects â€” turning skills into income.',
+    approach: 'AI-guided freelancing growth platform that helps students build profiles, find clients, price services, and manage projects — turning skills into income.',
     benefits: [
       'Unlocks immediate earning pathways during study',
       'Builds commercial portfolios and professional confidence',
@@ -235,7 +235,7 @@ const SOLUTIONS: Solution[] = [
     accent: 'from-fuchsia-500 to-purple-500',
     accentBg: 'bg-fuchsia-500/10',
     accentText: 'text-fuchsia-600',
-    challenge: 'Safety concerns during solo travel limit mobility and opportunity for women. Existing solutions are reactive â€” alerting after incidents rather than preventing them.',
+    challenge: 'Safety concerns during solo travel limit mobility and opportunity for women. Existing solutions are reactive — alerting after incidents rather than preventing them.',
     whoFor: 'Solo Female Travelers, Corporate Safety Teams, and Institutional Travel Programs.',
     approach: 'Smart safety intelligence that provides real-time risk assessment, route optimization, community safety scores, and proactive alert systems for travelers.',
     benefits: [
@@ -279,7 +279,7 @@ const SOLUTIONS: Solution[] = [
     accent: 'from-indigo-500 to-blue-500',
     accentBg: 'bg-indigo-500/10',
     accentText: 'text-indigo-600',
-    challenge: 'Student development tools exist in silos. Learning platforms, mentorship programs, placement systems, entrepreneurship support, and opportunity portals operate independently â€” creating fragmented student journeys.',
+    challenge: 'Student development tools exist in silos. Learning platforms, mentorship programs, placement systems, entrepreneurship support, and opportunity portals operate independently — creating fragmented student journeys.',
     whoFor: 'Universities, Technical Institutes, and Student Development Centers.',
     approach: 'A single intelligence layer connecting learning, mentoring, placements, entrepreneurship, and opportunities into one cohesive operating system that tracks and optimizes each student\'s growth trajectory.',
     benefits: [
@@ -296,7 +296,7 @@ const SOLUTIONS: Solution[] = [
   }
 ];
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Solution Card Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────── Solution Card Component ─────────────────── */
 
 function SolutionSection({ solution, index }: { solution: Solution; index: number }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -336,7 +336,7 @@ function SolutionSection({ solution, index }: { solution: Solution; index: numbe
       <div className="max-w-[1280px] mx-auto px-6 w-full">
         <div className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 md:gap-16 items-center`}>
 
-          {/* â”€â”€ IMAGE PANEL â”€â”€ */}
+          {/* ── IMAGE PANEL ── */}
           <motion.div
             className="w-full md:w-[55%] relative group"
             style={{ y: imageY, scale: imageScale }}
@@ -373,7 +373,7 @@ function SolutionSection({ solution, index }: { solution: Solution; index: numbe
             </div>
           </motion.div>
 
-          {/* â”€â”€ CONTENT PANEL â”€â”€ */}
+          {/* ── CONTENT PANEL ── */}
           <motion.div
             className="w-full md:w-[45%]"
             initial="hidden"
@@ -527,7 +527,7 @@ function SolutionSection({ solution, index }: { solution: Solution; index: numbe
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Scroll Progress Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────── Scroll Progress Sidebar ─────────────────── */
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -553,7 +553,7 @@ function ScrollProgress() {
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ Main Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────── Main Page ─────────────────── */
 
 export default function PortfolioPage() {
   /* Register GSAP ScrollTrigger for smooth refresh on mount */
@@ -573,7 +573,7 @@ export default function PortfolioPage() {
           ScrollTrigger.getAll().forEach((t) => t.kill());
         };
       } catch {
-        /* GSAP not critical â€” Framer Motion handles fallback */
+        /* GSAP not critical — Framer Motion handles fallback */
       }
     })();
 
@@ -582,16 +582,17 @@ export default function PortfolioPage() {
 
   const solutionsSchemas = SOLUTIONS.map((sol) => ({
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "SoftwareApplication",
     "name": sol.name,
-    "category": sol.category,
+    "applicationCategory": sol.category,
     "description": sol.challenge,
+    "operatingSystem": "Web",
     "provider": {
       "@type": "Organization",
       "name": "DEZAI",
       "url": "https://dezai.org"
     },
-    "serviceOutput": sol.impact
+    "featureList": sol.benefits.join(', ')
   }));
 
   const allFaqs = SOLUTIONS.flatMap(sol => sol.faqs.map(faq => ({
@@ -633,7 +634,7 @@ export default function PortfolioPage() {
       <JsonLd schema={[...solutionsSchemas, faqSchema, breadcrumbSchema]} />
       <ScrollProgress />
 
-      {/* â”€â”€ HERO â”€â”€ */}
+      {/* ── HERO ── */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6">
           <motion.div
@@ -677,14 +678,14 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* â”€â”€ SOLUTION SECTIONS â”€â”€ */}
+      {/* ── SOLUTION SECTIONS ── */}
       <div className="relative">
         {SOLUTIONS.map((solution, i) => (
           <SolutionSection key={solution.name} solution={solution} index={i} />
         ))}
       </div>
 
-      {/* â”€â”€ CLOSING CTA â”€â”€ */}
+      {/* ── CLOSING CTA ── */}
       <section className="py-[140px] relative overflow-hidden bg-surface-dim">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
