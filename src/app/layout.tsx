@@ -77,7 +77,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "DEZAI",
-    url: "https://dezai.org",
     images: [
       {
         url: "/icon.png",

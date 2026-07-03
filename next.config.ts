@@ -59,6 +59,17 @@ const nextConfig: NextConfig = {
         source: '/home',
         destination: '/',
         permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.dezai.org',
+          },
+        ],
+        destination: 'https://dezai.org/:path*',
+        permanent: true,
       }
     ];
   }
