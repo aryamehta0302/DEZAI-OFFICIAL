@@ -262,7 +262,7 @@ export default function TermsPage() {
                     <tbody>
                       <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Official Corporate Email</td>
-                        <td className="py-3 text-primary">team.dezaiai@gmail.com</td>
+                        <td className="py-3 text-primary">info@dezai.org</td>
                       </tr>
                       <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Primary Infrastructure Support</td>

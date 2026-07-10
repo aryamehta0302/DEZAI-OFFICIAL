@@ -61,8 +61,16 @@ export const metadata: Metadata = {
     "cloud solutions",
   ],
   alternates: {},
-  manifest: "/manifest.webmanifest",
+  manifest: "/site.webmanifest",
   icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-48x48.png", sizes: "48x48", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico",
     other: [
       {
         rel: "mask-icon",

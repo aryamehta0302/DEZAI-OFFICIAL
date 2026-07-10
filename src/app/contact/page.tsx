@@ -310,7 +310,7 @@ export default function ContactPage() {
       "@type": "Organization",
       "name": "DEZAI",
       "url": "https://dezai.org",
-      "email": "team.dezaiai@gmail.com",
+      "email": "info@dezai.org",
       "telephone": "+971552279475",
       "areaServed": "Global"
     }
@@ -389,11 +389,11 @@ export default function ContactPage() {
           >
             <h3 className="text-xl font-bold mb-6">Other Ways to Reach Us</h3>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              <a href="mailto:team.dezaiai@gmail.com" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">
+              <a href="mailto:info@dezai.org" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">
                 <span className="material-symbols-outlined text-primary">support_agent</span>
                 <div>
                   <div className="text-[10px] text-left text-outline label-caps">Direct Support</div>
-                  <div className="text-sm">team.dezaiai@gmail.com</div>
+                  <div className="text-sm">info@dezai.org</div>
                 </div>
               </a>
               <a href="tel:+971552279475" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors">

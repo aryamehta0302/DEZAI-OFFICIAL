@@ -57,9 +57,9 @@ export default function Footer() {
             <li><Link href="/contact" className="hover:text-primary transition-colors">Apply as Learner</Link></li>
             <li><Link href="/portfolio" className="hover:text-primary transition-colors">Concept Showcase</Link></li>
             <li>
-              <a href="mailto:team.dezaiai@gmail.com" className="hover:text-primary transition-colors flex items-center gap-2">
+              <a href="mailto:info@dezai.org" className="hover:text-primary transition-colors flex items-center gap-2">
                 <span className="material-symbols-outlined text-sm">mail</span>
-                team.dezaiai@gmail.com
+                info@dezai.org
               </a>
             </li>
             <li>

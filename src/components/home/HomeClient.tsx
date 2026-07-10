@@ -25,7 +25,7 @@ export default function Home() {
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+971552279475",
-      "email": "team.dezaiai@gmail.com",
+      "email": "info@dezai.org",
       "contactType": "customer service"
     },
     "description": "UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.",

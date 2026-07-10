@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from 'framer-motion';
 
@@ -234,7 +234,7 @@ export default function PrivacyPage() {
                     <tbody>
                       <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Data Protection Officer Email</td>
-                        <td className="py-3 text-primary">team.dezaiai@gmail.com</td>
+                        <td className="py-3 text-primary">info@dezai.org</td>
                       </tr>
                       <tr className="border-b border-border">
                         <td className="py-3 pr-4 font-bold text-on-surface select-none">Technical Infrastructure Desk</td>
