@@ -30,6 +30,7 @@ function BusinessFormContent() {
       // Verify if it matches one of the options
       const match = SERVICES.find(s => s.title.toLowerCase() === decodedService.toLowerCase());
       if (match) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setFormData(prev => ({ ...prev, service_interest: match.title }));
       }
     }

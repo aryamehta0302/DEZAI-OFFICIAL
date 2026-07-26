@@ -16,6 +16,7 @@ const fadeInUp = {
 };
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function TeamCard({ member, i }: { member: any; i: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -299,7 +300,7 @@ export default function StudioPage() {
               Meet the Core Team
             </h2>
             <p className="text-on-surface-variant max-w-xl mx-auto">
-              The architects, creators, and engineers leading DEZAI's mission.
+              The architects, creators, and engineers leading DEZAI&apos;s mission.
             </p>
           </motion.div>
 

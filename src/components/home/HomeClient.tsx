@@ -5,6 +5,11 @@ import { motion } from 'framer-motion';
 import { SERVICES } from '@/lib/constants';
 import JsonLd from '@/components/layout/JsonLd';
 import BrandsMarquee from '@/components/ui/BrandsMarquee';
+import WaitlistSection from '@/components/home/WaitlistSection';
+import MissionSection from '@/components/home/MissionSection';
+import ProcessSection from '@/components/home/ProcessSection';
+import IndustriesSection from '@/components/home/IndustriesSection';
+import FAQSection from '@/components/home/FAQSection';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 24 },
@@ -28,7 +33,7 @@ export default function Home() {
       "email": "info@dezai.org",
       "contactType": "customer service"
     },
-    "description": "UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.",
+    "description": "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders.",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "AE",
@@ -56,9 +61,64 @@ export default function Home() {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is DEZAI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DEZAI is a UAE-registered technology company that operates as a dual ecosystem: we build AI-driven digital products for businesses and run a mentorship platform that trains students to become industry-ready software engineering professionals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services does DEZAI provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For businesses, we provide end-to-end software development, including AI integration, custom SaaS engineering, web and mobile app development, and UX/UI design. For students, we offer immersive mentorship programs focused on real-world product development."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does DEZAI help businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We partner with startups, SMEs, and enterprises to accelerate their digital transformation. By leveraging modern tech stacks and Artificial Intelligence, we engineer scalable, high-performance applications that solve complex challenges and drive growth."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does DEZAI help students?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our mentorship platform bridges the gap between theoretical learning and professional capability. Students work on actual production codebases, receiving hands-on guidance from senior engineers to build a strong career portfolio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technologies does DEZAI use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We specialize in modern, robust frameworks including React, Next.js, Node.js, and Python. We also integrate cutting-edge Machine Learning and AI solutions tailored to specific project requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is DEZAI based?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DEZAI is officially registered and headquartered in Dubai, UAE, but we serve clients and mentor students globally."
+        }
+      }
+    ]
+  };
+
   return (
     <>
-      <JsonLd schema={[orgSchema, websiteSchema]} />
+      <JsonLd schema={[orgSchema, websiteSchema, faqSchema]} />
       {/* ==================== HERO ==================== */}
       <section className="relative w-full min-h-[90vh] flex flex-col bg-surface overflow-hidden">
 
@@ -83,14 +143,14 @@ export default function Home() {
               href="/contact"
               className="group h-12 sm:h-14 px-8 bg-primary text-on-primary rounded-xl flex items-center justify-center gap-2 font-bold text-lg transition-all shadow-[0_4px_24px_rgba(26,43,90,0.15)] hover:shadow-[0_4px_32px_rgba(26,43,90,0.25)] hover:bg-primary-dim"
             >
-              <span>Start Your Project</span>
+              <span>Explore Our AI Services</span>
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
             <Link 
               href="/learners"
               className="h-12 sm:h-14 px-8 flex items-center justify-center font-bold text-lg text-on-surface hover:bg-surface-dim transition-colors border border-border hover:border-border-hover rounded-xl"
             >
-              <span>Join Learners</span>
+              <span>Discover Our Programs</span>
             </Link>
           </div>
         </div>
@@ -248,6 +308,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== NEW SECTIONS ==================== */}
+      <MissionSection />
+      <ProcessSection />
+      <IndustriesSection />
+
+      {/* ==================== WAITLIST ==================== */}
+      <WaitlistSection />
+      
+      {/* ==================== FAQ ==================== */}
+      <FAQSection />
+
       {/* ==================== CTA BANNER ==================== */}
       <section className="py-[120px] relative overflow-hidden">
         <motion.div
@@ -279,4 +350,3 @@ export default function Home() {
     </>
   );
 }
-

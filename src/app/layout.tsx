@@ -43,11 +43,11 @@ export const metadata: Metadata = {
     title: "DEZAI",
   },
   title: {
-    default: "DEZAI | Build Products. Build People. Build The Future.",
+    default: "DEZAI | AI Software Development & Digital Product Company",
     template: "%s | DEZAI",
   },
   description:
-    "UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.",
+    "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders. Empowering innovation and tech talent.",
   keywords: [
     "DEZAI",
     "digital agency",
@@ -79,9 +79,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "DEZAI | Build Products. Build People. Build The Future.",
+    title: "DEZAI | AI Software Development & Digital Product Company",
     description:
-      "UAE-registered technology company helping businesses launch digital products while empowering future professionals.",
+      "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders. Empowering innovation and tech talent.",
     type: "website",
     locale: "en_US",
     siteName: "DEZAI",
@@ -96,9 +96,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DEZAI | Build Products. Build People. Build The Future.",
+    title: "DEZAI | AI Software Development & Digital Product Company",
     description:
-      "UAE-registered technology company helping businesses launch digital products while empowering future professionals.",
+      "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders. Empowering innovation and tech talent.",
     images: ["/icon.png"],
     creator: "@dezai",
   },

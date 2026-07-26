@@ -21,7 +21,6 @@ export default function BrandsMarquee({
   const duration = speed === 'slow' ? '40s' : speed === 'fast' ? '15s' : '25s';
 
   // Duplicate the list so it can scroll seamlessly
-  const doubledBrands = [...BRANDS, ...BRANDS, ...BRANDS];
 
   return (
     <div className="relative w-full overflow-hidden py-10 select-none bg-surface/50 border-y border-border/50">
