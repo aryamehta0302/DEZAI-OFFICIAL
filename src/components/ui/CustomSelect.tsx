@@ -90,6 +90,7 @@ export default function CustomSelect({
         role="combobox"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        aria-controls="dropdown-options"
         className={`w-full bg-surface-dim border ${
           isOpen ? borderFocus : 'border-border'
         } rounded-xl px-4 py-3 text-left text-on-surface flex justify-between items-center transition-all focus-ring cursor-pointer`}
@@ -116,6 +117,7 @@ export default function CustomSelect({
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
             role="listbox"
+            id="dropdown-options"
             className="absolute z-50 w-full mt-2 bg-white rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-border max-h-60 overflow-y-auto"
           >
             {options.map((option, index) => (

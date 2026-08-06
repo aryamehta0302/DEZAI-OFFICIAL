@@ -30,7 +30,7 @@ export default function MissionSection() {
             Our Mission: Building Technology, Empowering People
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg leading-relaxed">
-            DEZAI is a dual-force ecosystem. We architect enterprise-grade Software Engineering solutions and Artificial Intelligence platforms for businesses globally. Simultaneously, we fuel the next generation of tech leaders by providing hands-on mentorship, real-world project exposure, and career-accelerating guidance.
+            DEZAI operates as a dual-force ecosystem. We architect enterprise-grade software engineering solutions for businesses, while simultaneously training the next generation of engineers through hands-on mentorship on production codebases.
           </motion.p>
         </motion.div>
 
@@ -48,10 +48,20 @@ export default function MissionSection() {
                 domain
               </span>
             </div>
-            <h3 className="text-2xl font-bold mb-4">Driving Digital Transformation</h3>
+            <h3 className="text-2xl font-bold mb-4">Engineering Enterprise Platforms</h3>
             <p className="text-on-surface-variant leading-relaxed mb-6">
-              From high-growth startups to established enterprises, we engineer scalable SaaS platforms, automated cloud infrastructures, and AI-driven products that deliver measurable ROI. We build robust architectures that solve complex business challenges.
+              From growth-stage startups to established enterprises, we engineer scalable SaaS platforms, robust architectures, and AI-driven products that deliver measurable business outcomes.
             </p>
+            <ul className="space-y-2 mt-auto">
+              <li className="flex items-center gap-2 text-sm text-on-surface font-medium">
+                <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Full-stack dedicated squads
+              </li>
+              <li className="flex items-center gap-2 text-sm text-on-surface font-medium">
+                <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Rigorous architectural standards
+              </li>
+            </ul>
           </motion.article>
 
           {/* Student Side */}
@@ -67,10 +77,20 @@ export default function MissionSection() {
                 school
               </span>
             </div>
-            <h3 className="text-2xl font-bold mb-4">Cultivating Future Innovators</h3>
+            <h3 className="text-2xl font-bold mb-4">Real-World Engineering Mentorship</h3>
             <p className="text-on-surface-variant leading-relaxed mb-6">
-              We believe in learning by doing. Our mentorship platform embeds students into actual product engineering workflows, equipping them with industry-ready skills in Next.js, React, Node.js, and UX/UI design. We shape professionals, not just graduates.
+              We bridge the gap between academic theory and professional capability. Our mentors embed students into actual product engineering workflows, equipping them with industry-ready skills.
             </p>
+            <ul className="space-y-2 mt-auto">
+              <li className="flex items-center gap-2 text-sm text-on-surface font-medium">
+                <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Production codebase training
+              </li>
+              <li className="flex items-center gap-2 text-sm text-on-surface font-medium">
+                <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                Direct senior mentorship
+              </li>
+            </ul>
           </motion.article>
         </div>
       </div>

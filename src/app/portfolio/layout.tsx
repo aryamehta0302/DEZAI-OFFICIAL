@@ -1,12 +1,14 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Portfolio & Concepts',
-  description: "Explore DEZAI's architectural digital excellence. View our showcase of high-performance web development and AI.",
+  title: 'Portfolio & Success Stories | DEZAI Studio',
+  description: "Explore DEZAI's architectural digital excellence. View our showcase of high-performance enterprise applications, mobile platforms, and AI engineering.",
   alternates: { canonical: '/portfolio' },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { ReactNode } from 'react';
+
+export default function Layout({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 

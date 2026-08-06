@@ -127,9 +127,8 @@ export default function Home() {
 
           {/* Headline (H1 for SEO) */}
           <h1 className="text-on-surface text-center font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-8 pb-2">
-            Build Products.<br />
-            Build People.<br />
-            <span className="text-primary">Build The Future.</span>
+            Engineering world-class products.<br />
+            <span className="text-primary">Mentoring the engineers who build them.</span>
           </h1>
 
           {/* Subheadline (p for SEO) */}
@@ -300,7 +299,7 @@ export default function Home() {
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto bg-primary/8">
                   <span className="material-symbols-outlined text-2xl text-primary group-hover:scale-110 transition-transform inline-block">{item.icon}</span>
                 </div>
-                <h4 className="font-bold text-xl mb-3">{item.title}</h4>
+                <h3 className="font-bold text-xl mb-3">{item.title}</h3>
                 <p className="text-on-surface-variant text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
@@ -310,11 +309,9 @@ export default function Home() {
 
       {/* ==================== NEW SECTIONS ==================== */}
       <MissionSection />
+      <WaitlistSection />
       <ProcessSection />
       <IndustriesSection />
-
-      {/* ==================== WAITLIST ==================== */}
-      <WaitlistSection />
       
       {/* ==================== FAQ ==================== */}
       <FAQSection />

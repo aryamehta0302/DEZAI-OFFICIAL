@@ -251,17 +251,13 @@ body {
 
 /* === Ambient Global Lighting Animations === */
 @keyframes ambientDrift1 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-  33% { transform: translate(3%, 5%) scale(1.05); opacity: 0.25; }
-  66% { transform: translate(-2%, 2%) scale(0.95); opacity: 0.15; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
 }
 
 @keyframes ambientDrift2 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.15; }
-  33% { transform: translate(-4%, -3%) scale(1.1); opacity: 0.2; }
-  66% { transform: translate(3%, -4%) scale(0.9); opacity: 0.15; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.20; }
 }
 
 .animate-ambient-1 {

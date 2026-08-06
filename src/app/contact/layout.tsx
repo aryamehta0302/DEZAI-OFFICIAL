@@ -1,12 +1,14 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with DEZAI to start your digital project or apply for our Learner Hub mentorship.',
+  title: 'Contact DEZAI | Hire Remote Tech Talent & AI Engineers',
+  description: 'Get in touch with DEZAI to start your enterprise digital project, SaaS platform development, or apply for our Learner Hub mentorship.',
   alternates: { canonical: '/contact' },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { ReactNode } from 'react';
+
+export default function Layout({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }
 

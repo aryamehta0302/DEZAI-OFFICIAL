@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://dezai.org"),
   applicationName: "DEZAI",
-  authors: [{ name: "DEZAI Team", url: "https://dezai.org/studio" }],
+  authors: [{ name: "DEZAI Studio", url: "https://dezai.org/studio" }],
   creator: "DEZAI",
   publisher: "DEZAI",
   category: "technology",
@@ -43,24 +43,25 @@ export const metadata: Metadata = {
     title: "DEZAI",
   },
   title: {
-    default: "DEZAI | AI Software Development & Digital Product Company",
+    default: "DEZAI | Premium Software Engineering & AI Solutions",
     template: "%s | DEZAI",
   },
   description:
-    "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders. Empowering innovation and tech talent.",
+    "DEZAI builds enterprise-grade AI applications, SaaS platforms, and scalable digital products for forward-thinking businesses worldwide.",
   keywords: [
     "DEZAI",
-    "digital agency",
-    "web development",
-    "mobile apps",
-    "UI/UX design",
-    "AI integration",
-    "mentorship",
+    "software engineering",
+    "AI solutions",
+    "B2B SaaS development",
+    "custom enterprise software",
+    "digital product studio",
     "UAE tech company",
-    "SaaS development",
-    "cloud solutions",
+    "remote engineering team",
+    "AI integration",
   ],
-  alternates: {},
+  alternates: {
+    canonical: "https://dezai.org",
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -79,9 +80,10 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "DEZAI | AI Software Development & Digital Product Company",
+    title: "DEZAI | Premium Software Engineering & AI Solutions",
     description:
-      "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders. Empowering innovation and tech talent.",
+      "DEZAI builds enterprise-grade AI applications, SaaS platforms, and scalable digital products for forward-thinking businesses worldwide.",
+    url: "https://dezai.org",
     type: "website",
     locale: "en_US",
     siteName: "DEZAI",
@@ -96,9 +98,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DEZAI | AI Software Development & Digital Product Company",
+    title: "DEZAI | Premium Software Engineering & AI Solutions",
     description:
-      "DEZAI builds AI-driven digital products for businesses and mentors students to become software engineering leaders. Empowering innovation and tech talent.",
+      "DEZAI builds enterprise-grade AI applications, SaaS platforms, and scalable digital products for forward-thinking businesses worldwide.",
     images: ["/icon.png"],
     creator: "@dezai",
   },

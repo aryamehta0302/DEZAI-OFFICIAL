@@ -57,18 +57,21 @@ export default function ReviewsMarquee({
             </div>
 
             {/* User details */}
-            <div className="flex items-center gap-3.5 border-t border-border pt-5 mt-auto">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs md:text-sm shrink-0 ${review.avatarColor}`}>
-                {review.initials}
+            <div className="flex flex-col gap-3 border-t border-border pt-5 mt-auto">
+              <div className="flex items-center gap-1 text-[#00b67a] font-bold text-[10px] uppercase tracking-wider">
+                <span className="material-symbols-outlined text-[14px]">verified</span>
+                Verified Client
               </div>
-              <div className="min-w-0">
-                <h4 className="font-bold text-xs md:text-sm text-on-surface leading-tight truncate">{review.name}</h4>
-                <p className="text-on-surface-variant text-[10px] md:text-xs mt-0.5 leading-none truncate">
-                  {review.companyOrPath}
-                </p>
-                <p className="text-tertiary text-[9px] md:text-[10px] label-caps mt-1.5 leading-none truncate">
-                  {review.location.split(',').pop()?.trim() || review.location}
-                </p>
+              <div className="flex items-center gap-3.5">
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xs md:text-sm shrink-0 shadow-sm ${review.avatarColor}`}>
+                  {review.initials}
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-bold text-xs md:text-sm text-on-surface leading-tight truncate">{review.name}</h4>
+                  <p className="text-on-surface-variant text-[10px] md:text-xs mt-0.5 leading-none truncate font-medium">
+                    {review.companyOrPath}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

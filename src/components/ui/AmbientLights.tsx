@@ -23,8 +23,6 @@ export const AmbientLights = () => {
         aria-hidden="true"
       />
 
-      {/* Optional subtle noise overlay (ultra low opacity) */}
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.015] mix-blend-overlay pointer-events-none" aria-hidden="true" />
     </div>
   );
 };

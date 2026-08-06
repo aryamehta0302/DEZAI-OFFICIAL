@@ -528,6 +528,30 @@ function SolutionSection({ solution, index }: { solution: Solution; index: numbe
 }
 
 /* ─────────────────── Scroll Progress Sidebar ─────────────────── */
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "DEZAI Portfolio & Success Stories",
+  "description": "Explore DEZAI's architectural digital excellence. View our showcase of high-performance enterprise applications, mobile platforms, and AI engineering.",
+  "url": "https://dezai.org/portfolio",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": SOLUTIONS.map((solution, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": solution.name,
+        "description": solution.challenge,
+        "image": `https://dezai.org${solution.image}`,
+        "author": {
+          "@type": "Organization",
+          "name": "DEZAI"
+        }
+      }
+    }))
+  }
+};
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -631,7 +655,7 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <JsonLd schema={[...solutionsSchemas, faqSchema, breadcrumbSchema]} />
+      <JsonLd schema={[...solutionsSchemas, faqSchema, breadcrumbSchema, collectionSchema]} />
       <ScrollProgress />
 
       {/* ── HERO ── */}

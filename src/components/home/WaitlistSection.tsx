@@ -51,7 +51,7 @@ export default function WaitlistSection() {
   };
 
   return (
-    <section className="py-[120px] relative overflow-hidden bg-surface">
+    <section className="py-[120px] relative overflow-hidden bg-surface" aria-label="Waitlist">
       {/* Ambient glowing gradients for premium feel */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] animate-ambient-1 pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] animate-ambient-2 pointer-events-none" />
@@ -69,8 +69,9 @@ export default function WaitlistSection() {
 
           <div className="relative z-10 flex flex-col items-center text-center">
             {/* Badge */}
-            <motion.div variants={fadeInUp} className="badge mb-6">
-              ✨ Early Access
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-dim border border-border mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-sm font-semibold tracking-wide text-on-surface-variant uppercase">DEZAI Microcredentials</span>
             </motion.div>
 
             {/* Headline */}
