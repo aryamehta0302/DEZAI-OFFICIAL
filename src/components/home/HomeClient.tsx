@@ -127,13 +127,12 @@ export default function Home() {
 
           {/* Headline (H1 for SEO) */}
           <h1 className="text-on-surface text-center font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-8 pb-2">
-            Engineering world-class products.<br />
-            <span className="text-primary">Mentoring the engineers who build them.</span>
+            Engineering world-class software.<br />
+            <span className="text-primary">Mentoring the builders.</span>
           </h1>
 
-          {/* Subheadline (p for SEO) */}
           <p className="text-on-surface-variant text-center text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed font-medium">
-            UAE-registered technology company helping businesses launch digital products while empowering future professionals through mentorship and real-world experience.
+            Engineering world-class products for global enterprises. Mentoring the engineers who build them through hands-on, real-world experience.
           </p>
 
           {/* CTA Buttons */}

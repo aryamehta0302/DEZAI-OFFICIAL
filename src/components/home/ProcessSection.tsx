@@ -79,7 +79,7 @@ export default function ProcessSection() {
                   <div className="w-14 h-14 bg-surface border-2 border-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-xl shadow-[0_0_0_4px_var(--color-surface)] z-10 group-hover:border-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
                     {step.phase}
                   </div>
-                  <h3 className="text-2xl font-bold md:hidden">{step.title}</h3>
+                  <span className="text-2xl font-bold md:hidden block">{step.title}</span>
                 </div>
                 
                 <div className="card-elevated p-6 md:p-8 rounded-2xl flex-1 bg-surface group-hover:border-primary/30 transition-colors">

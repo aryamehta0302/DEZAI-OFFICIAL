@@ -27,7 +27,7 @@ export default function StudioFAQ() {
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                                className="w-full px-6 py-5 flex items-center justify-between text-left font-bold text-lg"
+                                className="w-full px-6 py-5 flex items-center justify-between text-left font-bold text-base"
                                 aria-expanded={openIndex === idx}
                             >
                                 <span>{faq.question}</span>
@@ -44,7 +44,7 @@ export default function StudioFAQ() {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3 }}
                                     >
-                                        <div className="px-6 pb-6 text-on-surface-variant leading-relaxed">
+                                        <div className="px-6 pb-6 text-on-surface-variant leading-relaxed text-sm">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

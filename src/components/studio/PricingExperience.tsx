@@ -41,18 +41,23 @@ const TierCard = ({ tier, type, selectedCurrency }: { tier: PricingTier; type: '
             <div className="w-full h-px bg-border mb-6" />
 
             <div className="flex-1">
-                <p className="text-sm text-on-surface-variant leading-relaxed mb-8">
-                    {tier.deliverables}
-                </p>
+                <ul className="text-sm text-on-surface-variant leading-relaxed mb-8 space-y-3">
+                    {tier.deliverables.split(',').map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                            <span className="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                            <span>{item.trim()}</span>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
-            <button className={`w-full py-4 rounded-xl font-bold transition-all ${
+            <a href={`mailto:info@dezai.org?subject=Inquiry for ${tier.name}`} className={`block text-center w-full py-4 rounded-xl font-bold transition-all ${
                 isGrowth
                     ? 'bg-primary text-on-primary hover:bg-primary-dim shadow-md hover:shadow-lg'
                     : 'bg-surface text-on-surface border border-border hover:border-primary/50 hover:bg-primary/5'
             }`}>
                 Select {type.charAt(0).toUpperCase() + type.slice(1)}
-            </button>
+            </a>
         </motion.div>
     );
 };
@@ -102,7 +107,7 @@ export default function PricingExperience() {
                 </div>
 
                 {/* Service Tabs */}
-                <div className="flex overflow-x-auto pb-4 mb-8 gap-2 scrollbar-hide snap-x justify-start md:justify-center">
+                <div className="flex flex-wrap justify-center pb-4 mb-8 gap-2">
                     {pricingData.services.map(service => (
                         <button
                             key={service.id}

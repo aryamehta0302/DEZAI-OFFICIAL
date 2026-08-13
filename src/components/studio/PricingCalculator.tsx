@@ -105,9 +105,9 @@ export default function PricingCalculator() {
                             </div>
                         </div>
 
-                        <button className="w-full mt-8 bg-on-surface text-surface font-bold py-4 rounded-xl hover:bg-on-surface/90 transition-colors">
+                        <a href="mailto:info@dezai.org?subject=Formal Proposal Request" className="block text-center w-full mt-8 bg-on-surface text-surface font-bold py-4 rounded-xl hover:bg-on-surface/90 transition-colors">
                             Request Formal Proposal
-                        </button>
+                        </a>
                     </div>
 
                 </div>

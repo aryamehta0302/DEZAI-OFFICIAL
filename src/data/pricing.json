@@ -319,6 +319,18 @@
     {
       "question": "What if my requirements don't fit into a standard tier?",
       "answer": "We offer structured hourly and day rates for ad-hoc features, discovery sprints, and technical advisory. We can also provide a completely custom scope based on your exact enterprise requirements."
+    },
+    {
+      "question": "Who owns the Intellectual Property (IP)?",
+      "answer": "You do. Upon full payment of the project milestones, all source code, design assets, and intellectual property are fully transferred to you."
+    },
+    {
+      "question": "How do you handle project management and communication?",
+      "answer": "We use dedicated Slack channels for daily communication, Jira/Linear for sprint tracking, and conduct weekly alignment calls. You'll have complete transparency into the development process."
+    },
+    {
+      "question": "Do you sign NDAs?",
+      "answer": "Yes. We respect the confidentiality of your ideas and enterprise data. We are happy to sign a Non-Disclosure Agreement (NDA) before any detailed discussions."
     }
   ]
 }

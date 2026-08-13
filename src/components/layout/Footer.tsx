@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="relative z-10 w-full bg-surface-dim border-t border-border mt-[120px]">
-      <div className="max-w-[1280px] mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+      <div className="max-w-[1280px] mx-auto px-6 py-20 grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-12">
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-3 mb-6">
@@ -78,6 +78,25 @@ export default function Footer() {
               <a href="tel:+916353362927" className="hover:text-primary transition-colors flex items-center gap-2">
                 <span className="material-symbols-outlined text-xs text-tertiary">phone</span>
                 +91 63533 62927
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Social Media */}
+        <nav aria-label="Social Media" className="col-span-2 md:col-span-1">
+          <h5 className="font-bold mb-6 text-sm text-on-surface">Follow Us</h5>
+          <ul className="space-y-3 text-on-surface-variant text-sm">
+            <li>
+              <a href="https://www.linkedin.com/company/dezaiai/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm">link</span>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/dezai.ai/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm">link</span>
+                Instagram
               </a>
             </li>
           </ul>
