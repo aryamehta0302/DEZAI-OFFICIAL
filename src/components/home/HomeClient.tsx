@@ -132,7 +132,7 @@ export default function Home() {
           </h1>
 
           <p className="text-on-surface-variant text-center text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed font-medium">
-            Engineering world-class products for global enterprises. Mentoring the engineers who build them through hands-on, real-world experience.
+            Engineering world-class software for global enterprises. Mentoring the builders through hands-on, real-world experience.
           </p>
 
           {/* CTA Buttons */}
