@@ -11,6 +11,7 @@ export default function Footer() {
             <Image
               src="/logo-brand.png"
               alt="DEZAI"
+              title="DEZAI"
               width={140}
               height={44}
               className="object-contain max-h-12 w-auto h-auto"

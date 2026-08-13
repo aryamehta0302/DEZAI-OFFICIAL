@@ -19,6 +19,7 @@ export default function Navbar() {
             <Image
               src="/logo-brand.png"
               alt="DEZAI"
+              title="DEZAI"
               width={140}
               height={48}
               className="object-contain max-h-12 w-auto h-auto"

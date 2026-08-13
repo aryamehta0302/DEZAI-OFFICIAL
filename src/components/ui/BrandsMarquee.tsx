@@ -32,6 +32,7 @@ export default function BrandsMarquee() {
                 <Image
                   src={brand.src}
                   alt={`${brand.name} - ${brand.label}`}
+                  title={`${brand.name} - ${brand.label}`}
                   width={140}
                   height={50}
                   className="object-contain max-h-12 w-auto h-auto"
