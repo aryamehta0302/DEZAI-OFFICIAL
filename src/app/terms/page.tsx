@@ -115,7 +115,7 @@ export default function TermsPage() {
                 <h3 className="text-xl font-bold text-on-surface mb-4">2. Intellectual Property and Proprietary Marks</h3>
                 <div className="space-y-4">
                   <p>
-                    The entire functional ecosystem of DEZAI—including but not limited to custom content, layout structures, proprietary design tokens, database engines, wireframe methodologies, brand iconography, text assets, software components, and original source systems (collectively defined as the &ldquo;Proprietary Core&rdquo;)—is owned absolutely by or licensed exclusively to DEZAI. All rights are strictly reserved under national copyright frameworks, international intellectual property treaties, and proprietary trademark protections.
+                    The entire functional ecosystem of DEZAI, including but not limited to custom content, layout structures, proprietary design tokens, database engines, wireframe methodologies, brand iconography, text assets, software components, and original source systems (collectively defined as the &ldquo;Proprietary Core&rdquo;), is owned absolutely by or licensed exclusively to DEZAI. All rights are strictly reserved under national copyright frameworks, international intellectual property treaties, and proprietary trademark protections.
                   </p>
                   <p>
                     No element of the Site, the Content, or the Marks may be extracted, scraped, reverse-engineered, decompiled, mirrored, reproduced, aggregated, distributed, or commercialized without securing an explicit, un-delegated written license carrying the authorized seal and signature of DEZAI corporate officers. Any unauthorized derivation of our progressive design frameworks or layout mechanics will trigger immediate regulatory and technical remediation protocols.
@@ -280,7 +280,7 @@ export default function TermsPage() {
                   </table>
                 </div>
                 <div className="mt-8 text-center text-xs text-on-surface-variant/60 font-medium select-none">
-                  DEZAI Master Legal Framework — Confidential &amp; Proprietary 2026
+                  DEZAI Master Legal Framework | Confidential &amp; Proprietary 2026
                 </div>
               </section>
 

@@ -41,7 +41,7 @@ export default function EventsClient() {
             Hackathons &amp; <span className="text-primary">Industry Moments</span>
           </h1>
           <p className="text-on-surface-variant text-center text-lg sm:text-xl max-w-2xl leading-relaxed font-medium">
-            Real moments from the DEZAI ecosystem — student hackathons, industry jury roles, and engineering mentorship in action.
+            Real moments from the DEZAI ecosystem including student hackathons, industry jury roles, and engineering mentorship in action.
           </p>
         </motion.div>
       </section>
@@ -69,7 +69,7 @@ export default function EventsClient() {
               <h2 className="text-3xl md:text-5xl font-extrabold text-on-surface mb-4 tracking-tight">GDG CHARUSAT &times; DEZAI Hackorbit 2026</h2>
               <h3 className="text-xl md:text-2xl font-medium text-on-surface-variant mb-6">Building real products with the next generation of engineers</h3>
               <p className="text-on-surface-variant/80 text-lg leading-relaxed mb-6">
-                Students and mentors came together for an intensive build session. From live product demos to hands-on mentoring, Hackorbit showcased the DEZAI approach in action — real code, real feedback, real growth.
+                Students and mentors came together for an intensive build session. From live product demos to hands-on mentoring, Hackorbit showcased the DEZAI approach in action: real code, real feedback, real growth.
               </p>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function EventsClient() {
                 <span className="material-symbols-outlined text-tertiary bg-tertiary/10 p-2 rounded-lg text-sm">gavel</span>
                 <span className="text-sm font-bold text-tertiary tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-tertiary to-purple-500">Jury / Industry Representation &middot; 2026</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-on-surface mb-4 tracking-tight">Tetrathon 2026 — India's First Indo-French Hackathon</h2>
+              <h2 className="text-3xl md:text-5xl font-extrabold text-on-surface mb-4 tracking-tight">Tetrathon 2026 | India's First Indo-French Hackathon</h2>
               <h3 className="text-xl md:text-2xl font-medium text-on-surface-variant mb-6">DEZAI Founder &amp; CEO as Jury at Navrachana University, Baroda</h3>
               <p className="text-on-surface-variant/80 text-lg leading-relaxed mb-6">
                 Representing DEZAI on the jury of India's first Indo-French hackathon. Evaluating student and startup teams, exchanging perspectives with an international organising cohort, and reinforcing DEZAI's commitment to high-standard product engineering and talent development.

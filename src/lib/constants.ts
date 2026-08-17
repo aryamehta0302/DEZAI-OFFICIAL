@@ -73,7 +73,7 @@ export const CONCEPT_PROJECTS: ConceptProject[] = [
     title: 'Startup CRM Concept',
     category: 'SaaS',
     stack: ['React', 'Node.js', 'PostgreSQL', 'Redis'],
-    description: 'A lightweight CRM built for early-stage startups — pipeline management, contact tracking, and deal analytics.',
+    description: 'A lightweight CRM built for early-stage startups featuring pipeline management, contact tracking, and deal analytics.',
     gradient: 'from-emerald-900/40 via-teal-900/30 to-cyan-900/20',
     filter: 'saas',
   },
@@ -81,7 +81,7 @@ export const CONCEPT_PROJECTS: ConceptProject[] = [
     title: 'SaaS Analytics Dashboard Concept',
     category: 'FinTech / Analytics',
     stack: ['Next.js', 'D3.js', 'Stripe', 'Supabase'],
-    description: 'A real-time analytics dashboard for SaaS businesses — MRR tracking, churn analysis, and cohort breakdowns.',
+    description: 'A real-time analytics dashboard for SaaS businesses featuring MRR tracking, churn analysis, and cohort breakdowns.',
     gradient: 'from-violet-900/40 via-purple-900/30 to-fuchsia-900/20',
     filter: 'saas',
   },
@@ -200,7 +200,7 @@ export const LEARNER_FAQ: FAQItem[] = [
   },
   {
     question: 'What do I receive upon completion?',
-    answer: 'Certificates, recommendation letters, portfolio projects, and for top performers — internship opportunities with DEZAI or our partner companies.',
+    answer: 'Certificates, recommendation letters, portfolio projects, and for top performers, internship opportunities with DEZAI or our partner companies.',
   },
   {
     question: 'Is prior experience required?',

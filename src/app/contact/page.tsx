@@ -351,7 +351,7 @@ export default function ContactPage() {
               Let&apos;s Connect.
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-on-surface-variant text-lg max-w-xl mx-auto leading-relaxed">
-              Whether you&apos;re a business looking to scale or a learner ready to grow — we&apos;d love to hear from you.
+              Whether you&apos;re a business looking to scale or a learner ready to grow, we&apos;d love to hear from you.
             </motion.p>
           </motion.div>
         </div>
