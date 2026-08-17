@@ -22,7 +22,7 @@ export default function Navbar() {
               title="DEZAI"
               width={140}
               height={48}
-              className="object-contain max-h-12 w-auto h-auto"
+              className="object-contain max-h-12"
               priority
             />
           </Link>

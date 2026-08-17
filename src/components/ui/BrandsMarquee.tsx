@@ -35,7 +35,7 @@ export default function BrandsMarquee() {
                   title={`${brand.name} - ${brand.label}`}
                   width={140}
                   height={50}
-                  className="object-contain max-h-12 w-auto h-auto"
+                  className="object-contain max-h-12"
                 />
               </div>
               <span className="text-[10px] uppercase tracking-wider text-on-surface-variant/50 group-hover:text-primary transition-colors font-semibold">
