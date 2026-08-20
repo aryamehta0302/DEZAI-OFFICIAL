@@ -8,6 +8,9 @@ const BRANDS = [
   { name: 'XS', src: '/logos/xs.png', label: 'SaaS Engineering Client' },
   { name: 'iSecurify', src: '/logos/isecurify.png', label: 'Security Audit Partner' },
   { name: 'Allianz-i', src: '/logos/allianz-i.png', label: 'Digital Transformation' },
+  { name: 'Thruva', src: '/partners/truvad.png', label: 'Compliance Partner', customClass: 'scale-[1.5] mix-blend-multiply' },
+  { name: 'Neo Folks', src: '/partners/neofolks.png', label: 'Club Partner', customClass: 'mix-blend-multiply' },
+  { name: 'PranavX Labs', src: '/partners/pranavx labs.png', label: 'HR Partner', customClass: 'scale-110 mix-blend-multiply' },
 ];
 
 export default function BrandsMarquee() {
@@ -18,7 +21,7 @@ export default function BrandsMarquee() {
           <span className="label-caps text-on-surface-variant mb-2">Trusted by Enterprise Partners</span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-center">
+        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
           {BRANDS.map((brand, i) => (
             <motion.div
               key={brand.name}
@@ -26,7 +29,7 @@ export default function BrandsMarquee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center gap-3 group"
+              className="flex flex-col items-center gap-3 group w-[140px] sm:w-[160px]"
             >
               <div className="h-16 flex items-center justify-center grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
                 <Image
@@ -35,10 +38,10 @@ export default function BrandsMarquee() {
                   title={`${brand.name} - ${brand.label}`}
                   width={140}
                   height={50}
-                  className="object-contain max-h-12"
+                  className={`object-contain max-h-12 ${brand.customClass || ''}`}
                 />
               </div>
-              <span className="text-[10px] uppercase tracking-wider text-on-surface-variant/50 group-hover:text-primary transition-colors font-semibold">
+              <span className="text-[10px] uppercase tracking-wider text-on-surface-variant/50 group-hover:text-primary transition-colors font-semibold text-center leading-tight">
                 {brand.label}
               </span>
             </motion.div>
