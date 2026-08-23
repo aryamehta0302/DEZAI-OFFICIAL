@@ -3,22 +3,22 @@ import React from 'react';
 export const AmbientLights = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-50 select-none">
-      {/* Top Left - Soft Violet/Primary */}
+      {/* Top Left - Deep Gold */}
       <div 
-        className="absolute top-[-10%] left-[-10%] w-[clamp(300px,50vw,800px)] h-[clamp(300px,50vw,800px)] bg-primary/15 rounded-full blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-normal animate-ambient-1" 
+        className="absolute top-[-10%] left-[-10%] w-[clamp(400px,60vw,900px)] h-[clamp(400px,60vw,900px)] bg-primary/20 rounded-full blur-[120px] sm:blur-[200px] lg:blur-[250px] mix-blend-multiply animate-ambient-1" 
         aria-hidden="true"
       />
       
-      {/* Center Right - Soft Cyan */}
+      {/* Center Right - Soft Amber/Bronze */}
       <div 
-        className="absolute top-[30%] right-[-15%] w-[clamp(400px,60vw,900px)] h-[clamp(400px,60vw,900px)] bg-cyan-500/10 rounded-full blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-normal animate-ambient-2" 
+        className="absolute top-[30%] right-[-15%] w-[clamp(500px,70vw,1000px)] h-[clamp(500px,70vw,1000px)] bg-amber-600/10 rounded-full blur-[120px] sm:blur-[200px] lg:blur-[250px] mix-blend-multiply animate-ambient-2" 
         style={{ animationDelay: '-5s' }}
         aria-hidden="true"
       />
       
-      {/* Bottom Center - Soft Teal/Secondary */}
+      {/* Bottom Center - Pale Gold/Secondary */}
       <div 
-        className="absolute bottom-[-20%] left-[20%] w-[clamp(350px,55vw,850px)] h-[clamp(350px,55vw,850px)] bg-secondary/15 rounded-full blur-[100px] sm:blur-[150px] lg:blur-[200px] mix-blend-normal animate-ambient-1" 
+        className="absolute bottom-[-20%] left-[20%] w-[clamp(450px,65vw,950px)] h-[clamp(450px,65vw,950px)] bg-primary/10 rounded-full blur-[120px] sm:blur-[200px] lg:blur-[250px] mix-blend-multiply animate-ambient-1" 
         style={{ animationDelay: '-12s' }}
         aria-hidden="true"
       />

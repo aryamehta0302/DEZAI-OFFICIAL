@@ -16,6 +16,8 @@ const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 function BusinessFormContent() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service');
+  const planParam = searchParams.get('plan');
+  const usdPriceParam = searchParams.get('usdPrice');
 
   const [formData, setFormData] = useState({
     name: '', email: '', company: '', budget_range: '', service_interest: '' , project_description: '',
@@ -25,16 +27,49 @@ function BusinessFormContent() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (serviceParam) {
-      const decodedService = decodeURIComponent(serviceParam);
-      // Verify if it matches one of the options
-      const match = SERVICES.find(s => s.title.toLowerCase() === decodedService.toLowerCase());
-      if (match) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setFormData(prev => ({ ...prev, service_interest: match.title }));
+    if (serviceParam || planParam || usdPriceParam) {
+      const decodedService = serviceParam ? decodeURIComponent(serviceParam) : '';
+      const decodedPlan = planParam ? decodeURIComponent(planParam) : '';
+      
+      let matchedService = '';
+      if (decodedService) {
+        const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const normDecoded = normalize(decodedService);
+        const match = SERVICES.find(s => {
+          const normTitle = normalize(s.title);
+          return normTitle.includes(normDecoded) || normDecoded.includes(normTitle);
+        });
+        if (match) {
+          matchedService = match.title;
+        }
       }
+
+      let defaultDesc = '';
+      if (decodedService && decodedPlan) {
+        defaultDesc = `I am interested in the ${decodedPlan} plan for ${decodedService}.`;
+      } else if (decodedPlan) {
+        defaultDesc = `I am interested in the ${decodedPlan} plan.`;
+      }
+
+      let matchedBudget = '';
+      if (usdPriceParam) {
+        const num = parseInt(decodeURIComponent(usdPriceParam).replace(/[^0-9]/g, ''), 10);
+        if (!isNaN(num)) {
+          if (num < 5000) matchedBudget = 'Under $5,000';
+          else if (num < 15000) matchedBudget = '$5,000 - $15,000';
+          else if (num < 50000) matchedBudget = '$15,000 - $50,000';
+          else matchedBudget = '$50,000+';
+        }
+      }
+
+      setFormData(prev => ({ 
+        ...prev, 
+        ...(matchedService && { service_interest: matchedService }),
+        ...(defaultDesc && !prev.project_description && { project_description: defaultDesc }),
+        ...(matchedBudget && !prev.budget_range && { budget_range: matchedBudget })
+      }));
     }
-  }, [serviceParam]);
+  }, [serviceParam, planParam, usdPriceParam]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

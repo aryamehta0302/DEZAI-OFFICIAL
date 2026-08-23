@@ -1,48 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  /* === DEZAI Color System — Premium Light Theme === */
-  --color-surface: #FFFFFF;
-  --color-surface-dim: #F5F5F3;
-  --color-surface-bright: #FAFAFA;
-  --color-surface-lowest: #FFFFFF;
-  --color-surface-low: #FAFAF8;
-  --color-surface-container: #F0EFED;
-  --color-surface-high: #E8E8E6;
-  --color-surface-highest: #E0E0DE;
+  /* === DEZAI Color System — Luxury Beige Theme === */
+  --color-surface: #fdfbf7;
+  --color-surface-dim: #f4f0e6;
+  --color-surface-bright: #ffffff;
+  --color-surface-lowest: #f4f0e6;
+  --color-surface-low: #fdfbf7;
+  --color-surface-container: #e8e3d5;
+  --color-surface-high: #ffffff;
+  --color-surface-highest: #ffffff;
 
-  --color-primary: #1a2b5a;
-  --color-primary-dim: #253a73;
-  --color-on-primary: #FFFFFF;
-  --color-primary-container: #E8EDF8;
+  --color-primary: #a67c33;
+  --color-primary-dim: #8b6629;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ebdcb5;
 
-  --color-secondary: #3d4f7a;
-  --color-on-secondary: #FFFFFF;
-  --color-secondary-container: #E0E6F2;
+  --color-secondary: #2d2a26;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e8e3d5;
 
-  --color-tertiary: #475569;
-  --color-on-tertiary: #FFFFFF;
-  --color-tertiary-dim: #334155;
+  --color-tertiary: #5c564c;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-dim: #433e36;
 
-  --color-on-surface: #1A1A1A;
-  --color-on-surface-variant: #5A5A5A;
-  --color-on-background: #1A1A1A;
-  --color-background: #FFFFFF;
+  --color-on-surface: #2d2a26;
+  --color-on-surface-variant: #5c564c;
+  --color-on-background: #2d2a26;
+  --color-background: #f4f0e6;
 
-  --color-outline: #C0C0BE;
-  --color-outline-variant: #E0E0DE;
+  --color-outline: #d3cbb3;
+  --color-outline-variant: #e8e3d5;
 
-  --color-error: #DC2626;
-  --color-on-error: #FFFFFF;
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
 
-  --color-border: #E8E8E6;
-  --color-border-hover: #D0D0CE;
-  --color-border-focus: #1a2b5a;
-  --color-neon-mint: #D4A853;
+  --color-border: #e8e3d5;
+  --color-border-hover: #d3cbb3;
+  --color-border-focus: #a67c33;
+  --color-neon-mint: #a67c33;
 
   /* === Typography === */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
 
   /* === Spacing === */
   --spacing-section: 120px;
@@ -95,8 +96,8 @@ body {
 }
 
 ::selection {
-  background-color: rgba(26, 43, 90, 0.15);
-  color: #1a2b5a;
+  background-color: rgba(166, 124, 51, 0.2);
+  color: #a67c33;
 }
 
 /* === Scrollbar === */
@@ -223,7 +224,7 @@ body {
 .input-base:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(26, 43, 90, 0.1);
+  box-shadow: 0 0 0 3px rgba(166, 124, 51, 0.1);
 }
 
 .input-base::placeholder {
@@ -278,6 +279,6 @@ body {
 /* Background grid utility */
 .bg-grid-white {
   background-size: 40px 40px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(166, 124, 51, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(166, 124, 51, 0.05) 1px, transparent 1px);
 }

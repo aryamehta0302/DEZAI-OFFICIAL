@@ -64,7 +64,7 @@ export default function EventsClient() {
             <div className="flex-1 max-w-3xl">
               <div className="flex items-center gap-3 mb-4">
                 <span className="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg text-sm">code</span>
-                <span className="text-sm font-bold text-primary tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">Student Hackathon &middot; 2026</span>
+                <span className="text-sm font-bold text-primary tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-primary to-yellow-500">Student Hackathon &middot; 2026</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-on-surface mb-4 tracking-tight">GDG CHARUSAT &times; DEZAI Hackorbit 2026</h2>
               <h3 className="text-xl md:text-2xl font-medium text-on-surface-variant mb-6">Building real products with the next generation of engineers</h3>
@@ -115,7 +115,7 @@ export default function EventsClient() {
             <div className="flex-1 max-w-3xl">
               <div className="flex items-center gap-3 mb-4">
                 <span className="material-symbols-outlined text-tertiary bg-tertiary/10 p-2 rounded-lg text-sm">gavel</span>
-                <span className="text-sm font-bold text-tertiary tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-tertiary to-purple-500">Jury / Industry Representation &middot; 2026</span>
+                <span className="text-sm font-bold text-tertiary tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-tertiary to-amber-500">Jury / Industry Representation &middot; 2026</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-on-surface mb-4 tracking-tight">Tetrathon 2026 | India's First Indo-French Hackathon</h2>
               <h3 className="text-xl md:text-2xl font-medium text-on-surface-variant mb-6">DEZAI Founder &amp; CEO as Jury at Navrachana University, Baroda</h3>

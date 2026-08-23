@@ -125,30 +125,37 @@ export default function Home() {
         {/* Content Container */}
         <div className="w-full h-full flex-1 flex flex-col items-center justify-center relative z-10 animate-moveUp max-w-[1280px] mx-auto px-6 py-20 mt-10">
 
+          {/* Eyebrow Label */}
+          <div className="label-caps tracking-[0.2em] text-primary font-bold mb-8 opacity-90 text-[10px] sm:text-xs uppercase">
+            ENTERPRISE PRODUCT ENGINEERING • MENTORSHIP
+          </div>
+
           {/* Headline (H1 for SEO) */}
-          <h1 className="text-on-surface text-center font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-8 pb-2">
-            Engineering world-class software.<br />
-            <span className="text-primary">Mentoring the builders.</span>
+          <h1 className="font-serif text-on-surface text-center text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[1.15] mb-12 uppercase tracking-tight" style={{ fontWeight: 400 }}>
+            Engineering<br />
+            world-class<br />
+            software.<br />
+            <span className="text-primary italic pr-2">Mentoring<br />the builders.</span>
           </h1>
 
-          <p className="text-on-surface-variant text-center text-lg sm:text-xl max-w-2xl mb-12 leading-relaxed font-medium">
-            Engineering world-class software for global enterprises. Mentoring the builders through hands-on, real-world experience.
+          <p className="text-on-surface-variant text-center text-lg sm:text-xl max-w-2xl mb-14 leading-relaxed font-medium">
+            Scalable SaaS, AI-native products, and production mentorship — one standard of craft for enterprises and the engineers who will build the next decade.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full">
             <Link 
-              href="/contact"
-              className="group h-12 sm:h-14 px-8 bg-primary text-on-primary rounded-xl flex items-center justify-center gap-2 font-bold text-lg transition-all shadow-[0_4px_24px_rgba(26,43,90,0.15)] hover:shadow-[0_4px_32px_rgba(26,43,90,0.25)] hover:bg-primary-dim"
+              href="/studio"
+              className="group h-12 sm:h-14 px-8 bg-primary text-on-primary rounded-xl flex items-center justify-center gap-2 font-bold text-base sm:text-lg transition-all shadow-md hover:shadow-lg hover:bg-primary-dim"
             >
-              <span>Explore Our AI Services</span>
+              <span>Explore Studio</span>
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
             <Link 
               href="/learners"
-              className="h-12 sm:h-14 px-8 flex items-center justify-center font-bold text-lg text-on-surface hover:bg-surface-dim transition-colors border border-border hover:border-border-hover rounded-xl"
+              className="h-12 sm:h-14 px-8 flex items-center justify-center font-bold text-base sm:text-lg text-on-surface bg-surface-dim hover:bg-[#e8e3d5] transition-colors border border-outline-variant rounded-xl"
             >
-              <span>Discover Our Programs</span>
+              <span>Discover programs</span>
             </Link>
           </div>
         </div>
@@ -197,7 +204,7 @@ export default function Home() {
                   <motion.div
                     key={s.title}
                     whileHover={{ y: -2, scale: 1.02 }}
-                    className="relative group overflow-hidden border border-border/50 rounded-lg bg-surface-dim/50 p-3 flex flex-col gap-2 transition-all duration-300 hover:border-primary/30 hover:bg-white hover:shadow-[0_4px_12px_rgba(26,43,90,0.06)]"
+                    className="relative group overflow-hidden border border-border/50 rounded-lg bg-surface-dim/50 p-3 flex flex-col gap-2 transition-all duration-300 hover:border-primary/30 hover:bg-surface-bright hover:shadow-[0_8px_24px_rgba(166,124,51,0.08)]"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors text-lg">

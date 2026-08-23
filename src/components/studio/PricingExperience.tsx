@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { pricingData, getCurrencySymbol, getCurrencyName } from '@/lib/studio-pricing';
 import { Currency, PricingTier } from '@/types/studio';
 
-const TierCard = ({ tier, type, selectedCurrency }: { tier: PricingTier; type: 'starter' | 'growth' | 'enterprise'; selectedCurrency: Currency }) => {
+const TierCard = ({ tier, type, selectedCurrency, serviceTitle }: { tier: PricingTier; type: 'starter' | 'growth' | 'enterprise'; selectedCurrency: Currency; serviceTitle: string }) => {
     const isGrowth = type === 'growth';
     const priceString = tier.pricing[selectedCurrency];
     const hasPrice = priceString && priceString !== '-';
@@ -51,7 +51,7 @@ const TierCard = ({ tier, type, selectedCurrency }: { tier: PricingTier; type: '
                 </ul>
             </div>
 
-            <a href={`mailto:info@dezai.org?subject=Inquiry for ${tier.name}`} className={`block text-center w-full py-4 rounded-xl font-bold transition-all ${
+            <a href={`/contact?service=${encodeURIComponent(serviceTitle)}&plan=${encodeURIComponent(tier.name)}&usdPrice=${encodeURIComponent(tier.pricing['USD'] || '')}`} className={`block text-center w-full py-4 rounded-xl font-bold transition-all ${
                 isGrowth
                     ? 'bg-primary text-on-primary hover:bg-primary-dim shadow-md hover:shadow-lg'
                     : 'bg-surface text-on-surface border border-border hover:border-primary/50 hover:bg-primary/5'
@@ -136,9 +136,9 @@ export default function PricingExperience() {
                         transition={{ duration: 0.3 }}
                         className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
                     >
-                        <TierCard tier={activeService.tiers.starter} type="starter" selectedCurrency={selectedCurrency} />
-                        <TierCard tier={activeService.tiers.growth} type="growth" selectedCurrency={selectedCurrency} />
-                        <TierCard tier={activeService.tiers.enterprise} type="enterprise" selectedCurrency={selectedCurrency} />
+                        <TierCard tier={activeService.tiers.starter} type="starter" selectedCurrency={selectedCurrency} serviceTitle={activeService.title} />
+                        <TierCard tier={activeService.tiers.growth} type="growth" selectedCurrency={selectedCurrency} serviceTitle={activeService.title} />
+                        <TierCard tier={activeService.tiers.enterprise} type="enterprise" selectedCurrency={selectedCurrency} serviceTitle={activeService.title} />
                     </motion.div>
                 </AnimatePresence>
 

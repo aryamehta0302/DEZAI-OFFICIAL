@@ -13,14 +13,14 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="w-full sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-border shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+      <header className="w-full sticky top-0 z-50 bg-surface-bright/90 backdrop-blur-xl border-b border-border shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
         <nav className="flex justify-between items-center max-w-[1280px] mx-auto px-6 py-4" aria-label="Main navigation">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo-brand.png"
               alt="DEZAI"
               title="DEZAI"
-              width={140}
+              width={48}
               height={48}
               className="object-contain max-h-12"
               priority
@@ -96,7 +96,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 bg-surface-lowest/98 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {NAV_LINKS.map((link, i) => (

@@ -49,7 +49,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'AI & Machine Learning',
     level: 5,
     skills: ['PyTorch', 'LangGraph', 'FastAPI', 'ChromaDB'],
-    accent: 'from-violet-500 to-purple-500',
+    accent: 'from-amber-500 to-yellow-500',
     glowColor: 'rgba(139, 92, 246, 0.15)',
     avatarBg: 'bg-violet-500/10 text-violet-600',
     badges: ['NVIDIA Certified', 'IIT Madras SIH Leader'],
@@ -62,7 +62,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'Full Stack Development',
     level: 5,
     skills: ['Next.js', 'FastAPI', 'MongoDB', 'LangGraph'],
-    accent: 'from-emerald-500 to-teal-500',
+    accent: 'from-yellow-600 to-amber-600',
     glowColor: 'rgba(16, 185, 129, 0.15)',
     avatarBg: 'bg-emerald-500/10 text-emerald-600',
     badges: ['IBM AI Professional', 'AIML Club Research Head'],
@@ -75,7 +75,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'Full Stack Development',
     level: 4,
     skills: ['React', 'Next.js', 'Prisma', 'PostgreSQL'],
-    accent: 'from-blue-500 to-indigo-500',
+    accent: 'from-orange-500 to-amber-500',
     glowColor: 'rgba(59, 130, 246, 0.15)',
     avatarBg: 'bg-blue-500/10 text-blue-600',
     badges: ['Open Source Contributor', 'UI Specialist'],
@@ -88,7 +88,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'Backend Development',
     level: 4,
     skills: ['Node.js', 'Express.js', 'MongoDB', 'React.js'],
-    accent: 'from-cyan-500 to-sky-500',
+    accent: 'from-yellow-500 to-orange-400',
     glowColor: 'rgba(6, 182, 212, 0.15)',
     avatarBg: 'bg-cyan-500/10 text-cyan-600',
     badges: ['IIT Gandhinagar Finalist', 'Backend Architect'],
@@ -101,7 +101,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'AI & Machine Learning',
     level: 4,
     skills: ['Python', 'FastAPI', 'Streamlit', 'Supervised Learning'],
-    accent: 'from-rose-500 to-pink-500',
+    accent: 'from-amber-400 to-yellow-600',
     glowColor: 'rgba(244, 63, 94, 0.15)',
     avatarBg: 'bg-rose-500/10 text-rose-600',
     badges: ['IIIT Dharwad Top 60', 'IBM AI Certified'],
@@ -127,7 +127,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'Mobile & Web Development',
     level: 5,
     skills: ['Flutter', 'FastAPI', 'React', 'MongoDB'],
-    accent: 'from-fuchsia-500 to-purple-500',
+    accent: 'from-orange-400 to-amber-600',
     glowColor: 'rgba(217, 70, 239, 0.15)',
     avatarBg: 'bg-fuchsia-500/10 text-fuchsia-600',
     badges: ['NVIDIA Certified', 'Open Source Builder'],
@@ -140,7 +140,7 @@ const HALL_OF_LEARNERS: Learner[] = [
     path: 'Mobile App Development',
     level: 5,
     skills: ['Flutter', 'Android SDK', 'Java', 'WebRTC'],
-    accent: 'from-teal-500 to-cyan-500',
+    accent: 'from-yellow-500 to-amber-500',
     glowColor: 'rgba(20, 184, 166, 0.15)',
     avatarBg: 'bg-teal-500/10 text-teal-600',
     badges: ['9Brainz Intern', 'Mobile Architect'],
@@ -516,8 +516,8 @@ export default function LearnersPage() {
                       onClick={() => setActiveLearnerIndex(index)}
                       className={`relative text-left p-5 rounded-2xl border transition-all duration-300 overflow-hidden group focus:outline-none focus-ring flex flex-col justify-between h-36 ${
                         isActive
-                          ? 'bg-white border-primary/20 shadow-[0_4px_20px_rgba(26,43,90,0.08)]'
-                          : 'bg-white border-border hover:border-border-hover hover:shadow-sm'
+                          ? 'bg-surface-bright border-primary/20 shadow-[0_8px_30px_rgba(166,124,51,0.12)]'
+                          : 'bg-surface-dim border-border hover:border-border-hover hover:shadow-sm'
                       }`}
                     >
                       <div className="flex items-start gap-3 relative z-10 w-full">

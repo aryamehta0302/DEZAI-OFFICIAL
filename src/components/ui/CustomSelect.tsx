@@ -118,7 +118,7 @@ export default function CustomSelect({
             transition={{ duration: 0.15, ease: 'easeOut' }}
             role="listbox"
             id="dropdown-options"
-            className="absolute z-50 w-full mt-2 bg-white rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-border max-h-60 overflow-y-auto"
+            className="absolute z-50 w-full mt-2 bg-surface rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(45,42,38,0.1)] border border-border max-h-60 overflow-y-auto"
           >
             {options.map((option, index) => (
               <button
