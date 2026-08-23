@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const BRANDS = [
-  { name: 'Allianz-i', src: '/partners/allianz-i.png', label: 'Digital Transformation', customClass: 'mix-blend-multiply scale-110' },
-  { name: 'XS', src: '/partners/xs.png', label: 'SaaS Engineering Client', customClass: 'mix-blend-multiply scale-[1.2]' },
-  { name: 'iSecurify', src: '/partners/isecurify.png', label: 'Security Audit Partner', customClass: 'mix-blend-multiply scale-110' },
-  { name: 'Thruva', src: '/partners/truvad.png', label: 'Compliance Partner', customClass: 'mix-blend-multiply scale-[1.5]' },
-  { name: 'Neo Folks', src: '/partners/neofolks.png', label: 'Club Partner', customClass: 'mix-blend-multiply scale-110' },
-  { name: 'PranavX Labs', src: '/partners/pranavx.png', label: 'HR Partner', customClass: 'mix-blend-multiply scale-[1.15]' },
+  { name: 'Allianz-i', src: '/partners/allianz-i-v2.png', label: 'Digital Transformation', customClass: 'mix-blend-multiply scale-110' },
+  { name: 'XS', src: '/partners/xs-v2.png', label: 'SaaS Engineering Client', customClass: 'mix-blend-multiply scale-[1.2]' },
+  { name: 'iSecurify', src: '/partners/isecurify-v2.png', label: 'Security Audit Partner', customClass: 'mix-blend-multiply scale-110' },
+  { name: 'Thruva', src: '/partners/truvad-v2.png', label: 'Compliance Partner', customClass: 'mix-blend-multiply scale-[1.5]' },
+  { name: 'Neo Folks', src: '/partners/neofolks-v2.png', label: 'Club Partner', customClass: 'mix-blend-multiply scale-110' },
+  { name: 'PranavX Labs', src: '/partners/pranavx-v2.png', label: 'HR Partner', customClass: 'mix-blend-multiply scale-[1.15]' },
 ];
 
 export default function BrandsMarquee() {
