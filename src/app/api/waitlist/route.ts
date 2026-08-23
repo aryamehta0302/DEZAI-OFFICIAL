@@ -3,7 +3,9 @@ import { supabase } from '@/lib/supabase';
 import { z } from 'zod';
 
 const waitlistSchema = z.object({
+  name: z.string().min(1, { message: 'Name is required' }),
   email: z.string().email({ message: 'Invalid email address' }),
+  phone: z.string().optional().default(''),
   source: z.string().optional().default('landing_page'),
 });
 
@@ -19,7 +21,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, source } = result.data;
+    const { name, email, phone, source } = result.data;
 
     // 1. Check if email already exists
     const { data: existingUser, error: fetchError } = await supabase
@@ -49,7 +51,9 @@ export async function POST(request: Request) {
       .from('waitlist')
       .insert([
         {
+          name,
           email,
+          phone,
           source,
           status: 'pending',
         }

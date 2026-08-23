@@ -15,7 +15,9 @@ const staggerContainer = {
 };
 
 export default function WaitlistSection() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -32,7 +34,7 @@ export default function WaitlistSection() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ name, email, phone }),
       });
 
       const data = await response.json();
@@ -122,20 +124,37 @@ export default function WaitlistSection() {
                     onSubmit={handleSubmit}
                     className="flex flex-col gap-4"
                   >
-                    <div className="relative flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex flex-col gap-3 w-full">
+                      <input
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Full Name *"
+                        disabled={status === 'loading'}
+                        className="input-base w-full h-14 bg-surface text-base rounded-xl pl-5 focus-ring shadow-sm"
+                      />
                       <input
                         type="email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email address..."
+                        placeholder="Email Address *"
                         disabled={status === 'loading'}
-                        className="input-base flex-1 h-14 bg-surface text-lg rounded-xl pl-5 focus-ring"
+                        className="input-base w-full h-14 bg-surface text-base rounded-xl pl-5 focus-ring shadow-sm"
+                      />
+                      <input
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Phone Number (optional, for SMS updates)"
+                        disabled={status === 'loading'}
+                        className="input-base w-full h-14 bg-surface text-base rounded-xl pl-5 focus-ring shadow-sm"
                       />
                       <button
                         type="submit"
                         disabled={status === 'loading'}
-                        className="h-14 px-8 bg-primary text-on-primary rounded-xl font-bold text-lg transition-all shadow-[0_4px_24px_rgba(26,43,90,0.15)] hover:shadow-[0_4px_32px_rgba(26,43,90,0.25)] hover:bg-primary-dim disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center min-w-[160px]"
+                        className="h-14 mt-2 w-full bg-primary text-on-primary rounded-xl font-bold text-lg transition-all shadow-md hover:shadow-lg hover:bg-primary-dim disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
                       >
                         {status === 'loading' ? (
                           <span className="material-symbols-outlined animate-spin">sync</span>

@@ -7,7 +7,9 @@
 CREATE TABLE IF NOT EXISTS public.waitlist (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    name TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
+    phone TEXT,
     source TEXT DEFAULT 'landing_page',
     status TEXT DEFAULT 'pending'
 );
